@@ -1,6 +1,6 @@
 {
   "name": "@scx-js/scx-http",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SCX HTTP",
   "license": "MIT",
   "author": "scx567888",
@@ -11,7 +11,7 @@
     "url": "https://github.com/scx567888/scx-js.git"
   },
   "dependencies": {
-    "@scx-js/scx-common": "0.0.1",
+    "@scx-js/scx-common": "0.0.2",
     "vue": "^3.0.0"
   }
 }
