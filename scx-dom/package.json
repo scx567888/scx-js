@@ -1,0 +1,13 @@
+{
+  "name": "@scx-js/scx-dom",
+  "version": "0.0.1",
+  "description": "SCX DOM",
+  "license": "MIT",
+  "author": "scx567888",
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scx567888/scx-js.git"
+  }
+}

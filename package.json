@@ -1,0 +1,26 @@
+{
+  "name": "scx-js",
+  "version": "0.0.1",
+  "description": "SCX JS",
+  "license": "MIT",
+  "author": "scx567888",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "publish:all": "node _publish.js"
+  },
+  "workspaces": [
+    "scx-app-x",
+    "scx-common",
+    "scx-data",
+    "scx-dom",
+    "scx-http",
+    "scx-ui",
+    "scx-vite-plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scx567888/scx-js.git"
+  }
+}
