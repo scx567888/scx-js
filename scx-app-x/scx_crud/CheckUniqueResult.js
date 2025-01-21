@@ -1,4 +1,3 @@
-
 class CheckUniqueResult {
 
     /**
@@ -8,5 +7,5 @@ class CheckUniqueResult {
 }
 
 export {
-    CheckUniqueResult
-}
+    CheckUniqueResult,
+};

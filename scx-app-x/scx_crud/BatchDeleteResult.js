@@ -1,5 +1,3 @@
-
-
 class BatchDeleteResult {
 
     /**
@@ -10,5 +8,5 @@ class BatchDeleteResult {
 }
 
 export {
-    BatchDeleteResult
-}
+    BatchDeleteResult,
+};

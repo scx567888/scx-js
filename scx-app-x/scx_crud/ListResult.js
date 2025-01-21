@@ -1,4 +1,3 @@
-
 class ListResult {
 
     /**
@@ -14,5 +13,5 @@ class ListResult {
 }
 
 export {
-    ListResult
-}
+    ListResult,
+};

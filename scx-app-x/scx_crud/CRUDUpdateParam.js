@@ -1,5 +1,3 @@
-
-
 class CRUDUpdateParam {
 
     /**
@@ -14,5 +12,5 @@ class CRUDUpdateParam {
 }
 
 export {
-    CRUDUpdateParam
-}
+    CRUDUpdateParam,
+};

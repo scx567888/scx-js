@@ -12,5 +12,5 @@ class CRUDListParam {
 }
 
 export {
-    CRUDListParam
-}
+    CRUDListParam,
+};
