@@ -2,64 +2,6 @@ import {QUERY_SERIALIZER} from "@scx-js/scx-data/query/serializer/QuerySerialize
 import {FIELD_FILTER_SERIALIZER} from "@scx-js/scx-data/field_filter/serializer/FieldFilterSerializer.js";
 
 
-class CRUDListParam {
-
-    /**
-     * @type {Query}
-     */
-    query;
-
-    fieldFilter;
-
-    extParams;
-
-}
-
-class CRUDUpdateParam {
-
-    /**
-     * @type {Object}
-     */
-    updateModel;
-
-    /**
-     * @type {String[]}
-     */
-    needUpdateFieldNames;
-
-}
-
-class ListResult {
-
-    /**
-     * @type {Object[]}
-     */
-    items;
-
-    /**
-     * @type {Number}
-     */
-    total;
-
-}
-
-class BatchDeleteResult {
-
-    /**
-     * @type {Number}
-     */
-    deletedCount;
-
-}
-
-class CheckUniqueResult {
-
-    /**
-     * @type {Boolean}
-     */
-    isUnique;
-}
-
 class ScxCrud {
 
     /**
@@ -170,10 +112,5 @@ function serializeCRUDListParam(crudListParam) {
 
 export {
     ScxCrud,
-    CRUDListParam,
-    CRUDUpdateParam,
-    ListResult,
-    BatchDeleteResult,
-    CheckUniqueResult,
     serializeCRUDListParam,
 };
