@@ -11,6 +11,7 @@
     "publish:all": "node _publish.js"
   },
   "workspaces": [
+    "scx-admin",
     "scx-app-x",
     "scx-common",
     "scx-data",

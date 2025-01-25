@@ -1,0 +1,19 @@
+.scx-container {
+    display: flex;
+    height: 100%;
+}
+
+.scx-container .left-page {
+    width: 20%;
+    min-width: 15%;
+    max-width: 50%;
+    border-right: 2px solid #a5a3a3;
+    flex-shrink: 0;
+    resize: horizontal;
+    overflow: auto;
+}
+
+.scx-container .right-page {
+    width: 100%;
+    overflow: auto;
+}

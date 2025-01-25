@@ -1,0 +1,95 @@
+/*----------------强制设置第三方组件在登录页的样式----------------*/
+
+/*登录页所有的图标颜色*/
+.login-form-bg .scx-icon {
+    fill: whitesmoke;
+}
+
+.login-form-bg.loginTab {
+    height: 309px;
+}
+
+.login-form-bg.loginTab.needAnimation .el-tabs__content {
+    transform-origin: 0 0 0;
+    animation: loginTabScale 300ms ease-in-out;
+}
+
+@keyframes loginTabScale {
+    0% {
+        opacity: 0;
+        transform: scaleY(1.4);
+    }
+    100% {
+        transform: scaleY(1.0);
+    }
+}
+
+.login-form-bg.registerTab {
+    height: 369px;
+}
+
+.login-form-bg.registerTab.needAnimation .el-tabs__content {
+    transform-origin: 0 0 0;
+    animation: registerTabScale 300ms ease-in-out;
+}
+
+@keyframes registerTabScale {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.74);
+    }
+    100% {
+        transform: scaleY(1.0);
+    }
+}
+
+
+/*------------强制设置第三方组件在登录页的样式---------------*/
+/* tabs */
+.login-form-bg .el-tabs__nav-wrap::after {
+    background-color: transparent;
+}
+
+.login-form-bg .el-tabs__header {
+    user-select: none;
+}
+
+/* form */
+.login-form-bg .el-input__inner {
+    height: 40px;
+    color: whitesmoke !important;
+}
+
+.login-form-bg .el-input__wrapper {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-style: unset;
+    box-shadow: 0 0 0 2px hsla(0, 0%, 100%, .3) inset;
+    border-radius: 2px;
+}
+
+.login-form-bg .el-input__wrapper:hover {
+    box-shadow: 0 0 0 2px #40a9ff inset;
+}
+
+.login-form-bg .el-input__wrapper:focus-within {
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.5) inset;
+}
+
+.login-form-bg .el-input__prefix {
+    left: 15px;
+}
+
+.login-form-bg .el-tabs__item {
+    color: rgba(255, 252, 248, 0.85);
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+}
+
+.login-form-bg .el-tabs__item.is-active,
+.login-form-bg .el-tabs__item:hover {
+    color: #1890ff;
+}
+
+
+
+

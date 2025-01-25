@@ -1,0 +1,74 @@
+.left-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.left-tree-hearer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-tree-refresh-button {
+    position: absolute;
+    left: 2px;
+}
+
+.left-tree-title {
+    font-size: 20px;
+}
+
+.left-tree-title-info {
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #5d5d5d;
+}
+
+.tree1 {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: var(--scx-overlay-bg);
+    box-shadow: var(--scx-box-shadow-center);
+}
+
+.custom-tree-node {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-right: 8px;
+}
+
+/* 针对 常用情况定义的 css  */
+
+.custom-tree-node > .e1 {
+    display: flex;
+    user-select: none;
+    font-weight: 600;
+}
+
+.custom-tree-node > .e1 > .e2 {
+    color: #13ce2f;
+    margin-right: 5px
+}
+
+.custom-tree-node > .e1 > .e2:hover {
+    color: #067e18;
+}
+
+.custom-tree-node .e7 {
+    font-weight: 600;
+}

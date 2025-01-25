@@ -1,0 +1,31 @@
+{
+  "name": "@scx-js/scx-admin",
+  "version": "0.0.3",
+  "description": "SCX Admin",
+  "license": "MIT",
+  "author": "scx567888",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev:test": "vite _test --host",
+    "build:test": "vite build _test",
+    "preview:test": "vite preview _test --host"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scx567888/scx-js.git"
+  },
+  "dependencies": {
+    "@scx-js/scx-app-x": "0.0.3",
+    "@scx-js/scx-common": "0.0.3",
+    "@scx-js/scx-dom": "0.0.3",
+    "element-plus": "^2.9.3",
+    "nprogress": "^0.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "clipboard": "^2.0.0",
+    "vite": "^6.0.0",
+    "vue-router": "^4.0.0"
+  }
+}

@@ -1,0 +1,8 @@
+.easy-monaco-editor {
+    min-height: 200px;
+    max-height: 600px;
+    max-width: 100%;
+    min-width: 400px;
+    resize: both;
+    overflow: hidden;
+}

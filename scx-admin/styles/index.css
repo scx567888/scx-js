@@ -1,0 +1,37 @@
+/*-------------------- 以下为一些其余的 css --------------------*/
+
+#nprogress {
+    --nprogress-color: var(--scx-theme);
+}
+
+/*添加修改页面的 label 使其变粗*/
+.crud .el-form-item__label {
+    font-weight: 700;
+}
+
+/*在 el 按钮中的图标颜色取按钮文字颜色 */
+.el-button .scx-icon {
+    fill: currentColor;
+}
+
+/*在 el 按钮中 当 scx-icon 和 span 处在一起时 增加两者的间距*/
+.el-button [class*=scx-icon] + span {
+    margin-left: 6px;
+}
+
+/* 定义一些其他的样式 */
+.el-scrollbar__thumb {
+    --el-scrollbar-opacity: 1;
+    --el-scrollbar-bg-color: var(--scx-scrollbar-thumb-bg);
+    --el-scrollbar-hover-opacity: 1;
+    --el-scrollbar-hover-bg-color: var(--scx-scrollbar-thumb-hover-bg);
+}
+
+/*todo element plus 默认 为 span 这里特殊处理让其撑满横向宽度 */
+.el-tree-node__label {
+    width: 100%;
+}
+
+.el-form-item__content {
+    min-width: 180px;
+}
