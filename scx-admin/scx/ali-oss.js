@@ -1,4 +1,4 @@
-import { formatFileSize, getChunkAndHash,} from "@scx-js/scx-app-x";
+import {formatFileSize, getChunkAndHash} from "@scx-js/scx-app-x";
 import dayjs from "dayjs/esm/index.js";
 import {inject} from "vue";
 

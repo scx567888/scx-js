@@ -34,8 +34,8 @@ import {computed, ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
 import defaultAvatar from "./img/default-avatar.gif";
 import {ElMessage} from "element-plus";
-import {ScxPanel, ScxPanelItem, } from "@scx-js/scx-ui";
-import {useScxFSS } from "@scx-js/scx-app-x";
+import {ScxPanel, ScxPanelItem,} from "@scx-js/scx-ui";
+import {useScxFSS} from "@scx-js/scx-app-x";
 import {getRouteTitle, routeNoNeedLogin, useScxAuth, useScxRouter, useScxUserInfo} from "../scx/index.js";
 
 export default {

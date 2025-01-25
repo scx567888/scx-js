@@ -7,7 +7,7 @@
 
 </script>
 <style scoped>
-.home{
+.home {
     padding: 10px;
 }
 </style>

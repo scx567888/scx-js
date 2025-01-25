@@ -19,7 +19,7 @@ class TestAuth extends ScxAuth {
 
     tokenCanUse() {
         return new Promise((resolve, reject) => {
-            this.userInfo.fill({user: {isAdmin:true}, perms: {pagePerms: []}});
+            this.userInfo.fill({user: {isAdmin: true}, perms: {pagePerms: []}});
             this.userInfo.loginStatus = true;
             resolve(this.getToken() === "123");
         });

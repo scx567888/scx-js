@@ -2,7 +2,6 @@ import {JsonVOError, ResponseNotOKError, ScxReq} from "@scx-js/scx-http";
 import {ScxAuthInfo} from "./scx-auth-info.js";
 import {inject} from "vue";
 import {ElMessage} from "element-plus";
-import {loginMessage} from "../views/login/login-message.js";
 
 
 /**
@@ -105,7 +104,7 @@ class ScxAuth {
                 this.setToken(data.token);
                 resolve(data.token);
             }).catch(error => {
-                reject(error)
+                reject(error);
             });
         });
     }

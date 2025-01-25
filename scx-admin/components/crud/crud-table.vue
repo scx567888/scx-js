@@ -5,14 +5,14 @@
               border
               class="crud-table"
               max-height="600"
+              row-key="id"
               stripe
-              @sort-change="handleSortChange"
-              @selection-change="(a)=>crudContext.handleSelectionChange(a)"
               @select="(a)=>crudContext.tableSelect(a)"
               @selectAll="(a)=>crudContext.tableSelectAll(a)"
-              row-key="id"
+              @sort-change="handleSortChange"
+              @selection-change="(a)=>crudContext.handleSelectionChange(a)"
               @row-contextmenu="handleRowContextMenu">
-        <el-table-column type="selection" width="55" :reserve-selection="true"/>
+        <el-table-column :reserve-selection="true" type="selection" width="55"/>
         <slot></slot>
     </el-table>
 

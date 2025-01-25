@@ -1,15 +1,11 @@
-import {
-    JsonVOError,
-    ScxReq,
-    useScxReq,
-} from "@scx-js/scx-http";
-import {CRUDListParam,ScxCrud} from "@scx-js/scx-app-x"
+import {JsonVOError, ScxReq, useScxReq} from "@scx-js/scx-http";
+import {CRUDListParam, ScxCrud} from "@scx-js/scx-app-x";
 import {focusFirstErrorElement} from "../util/index.js";
 import {useScxUserInfo} from "./scx-auth-info.js";
 import {ElMessage, ElNotification} from "element-plus";
 import {inject, isReactive, nextTick, provide, reactive} from "vue";
-import {OrderBy, and, like, query, eq, in_} from "@scx-js/scx-data";
-import {deepCopy,notBlank} from "@scx-js/scx-common";
+import {and, eq, in_, OrderBy, query} from "@scx-js/scx-data";
+import {deepCopy, notBlank} from "@scx-js/scx-common";
 
 /**
  *
@@ -181,7 +177,7 @@ class CrudContext {
         let msg = `已成功删除 : ${this.getMainInfo(row)}`;// 删除消息
         let en = null; // 弹出框对象
         //这里针对后台是否采用墓碑机制给予用户删除的两种不同交互策略
-        this.scxCrud.delete({query:eq("id",row.id)}).then(data => {
+        this.scxCrud.delete({query: eq("id", row.id)}).then(data => {
             en = ElNotification({
                 title: "删除成功 !!!",
                 message: msg,
@@ -204,7 +200,7 @@ class CrudContext {
             return;
         }
         //数据校验全部没问题 可以进行 批量删除
-        this.scxCrud.delete({query:in_("id",deleteIDs)})
+        this.scxCrud.delete({query: in_("id", deleteIDs)})
                 .then(deletedCount => {
                     ElNotification({
                         title: "已删除全部选中数据 , 共" + deletedCount + "条 !", type: "success", duration: 5000,
@@ -244,37 +240,37 @@ class CrudContext {
      * @return {CRUDListParam}
      */
     getQueryParam() {
-        const q=query();
+        const q = query();
         //1, 设置分页
-        q.limit(this.pagination.pageSize)
-        q.offset((this.pagination.currentPage - 1)*this.pagination.pageSize);
-        
+        q.limit(this.pagination.pageSize);
+        q.offset((this.pagination.currentPage - 1) * this.pagination.pageSize);
+
         //2, 设置 orderBy
         q.orderBy(new OrderBy(this.orderBy.fieldName, this.orderBy.sortType));
 
         //3, 设置 where
-        
+
 
         //4, 设置 selectFilter
         const f = this.selectFilterBody;
 
-        const a=and();
+        const a = and();
         //获取所有 like的查询项
         for (let key in this.where) {
             if (this.where.hasOwnProperty(key)) {
                 const value1 = this.where[key];
                 if (notBlank(value1)) {
-                    a.like(key,value1)
+                    a.like(key, value1);
                 }
             }
         }
-        
-        q.where(a)
 
-        return  {
-            query:q,
-            fieldFilter:f,
-            extParams:{},
+        q.where(a);
+
+        return {
+            query: q,
+            fieldFilter: f,
+            extParams: {},
         };
     }
 
@@ -488,11 +484,11 @@ class CrudContext {
     }
 
     tableSelect(columns) {
-        
+
     }
 
     tableSelectAll(columns) {
-        
+
     }
 
     install(app) {

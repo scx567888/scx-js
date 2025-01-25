@@ -54,4 +54,4 @@ const LoginRoute = {
 };
 
 
-export {PathMatchRoute, NotFoundRoute, NoPermRoute,LoginRoute,LoginAndRegisterRoute};
+export {PathMatchRoute, NotFoundRoute, NoPermRoute, LoginRoute, LoginAndRegisterRoute};

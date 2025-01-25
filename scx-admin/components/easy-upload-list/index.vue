@@ -51,7 +51,7 @@ export default {
 
         const proxyModelValue = computed({
             get() {
-                return props.modelValue?props.modelValue:[];
+                return props.modelValue ? props.modelValue : [];
             },
             set(value) {
                 ctx.emit("update:modelValue", value);
