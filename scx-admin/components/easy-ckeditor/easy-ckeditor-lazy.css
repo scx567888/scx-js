@@ -1,0 +1,17 @@
+:root {
+    --ck-z-modal: 9999999;
+}
+
+.easy-ckeditor-lazy {
+    border: 1px solid var(--scx-text-placeholder-color);
+    border-radius: 2px;
+    width: 100%;
+    min-width: 200px;
+    min-height: 100px;
+    padding: 0 0.6em;
+    background-color: white;
+}
+
+.easy-ckeditor-lazy.ck-content:not(.ck-focused) {
+    border-color: var(--scx-text-placeholder-color);
+}

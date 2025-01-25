@@ -12,8 +12,8 @@ const scxReq = new ScxReq("http://127.0.0.1:8081");
 const scxFSS = new ScxFSS(scxReq);
 
 createApp(App)
-    .use(Router)
-    .use(ScxComponent)
-    .use(scxReq)
-    .use(scxFSS)
-    .mount("#app");
+        .use(Router)
+        .use(ScxComponent)
+        .use(scxReq)
+        .use(scxFSS)
+        .mount("#app");
