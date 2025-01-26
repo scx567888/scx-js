@@ -72,7 +72,6 @@ export default {
          */
         function logout() {
             auth.logout().then(() => {
-                debugger;
                 ElMessage.success("退出登录成功 !!!");
                 //查看当前页面是否在未登录即可访问的白名单中 , 在的话不做任何处理 , 不在的话重定向到登录
                 if (!routeNoNeedLogin(route)) {
