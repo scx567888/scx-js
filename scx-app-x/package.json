@@ -1,6 +1,6 @@
 {
   "name": "@scx-js/scx-app-x",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "SCX App X",
   "main": "index.js",
   "repository": {
@@ -8,9 +8,9 @@
     "url": "https://github.com/scx567888/scx-js.git"
   },
   "dependencies": {
-    "@scx-js/scx-common": "^0.0.3",
-    "@scx-js/scx-http": "^0.0.3",
-    "@scx-js/scx-data": "^0.0.3",
+    "@scx-js/scx-common": "^0.0.4",
+    "@scx-js/scx-http": "^0.0.4",
+    "@scx-js/scx-data": "^0.0.4",
     "spark-md5-es": "^3.0.2"
   }
 }
