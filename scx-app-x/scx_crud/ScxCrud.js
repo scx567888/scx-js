@@ -1,5 +1,4 @@
-import {QUERY_SERIALIZER} from "@scx-js/scx-data/query/serializer/QuerySerializer.js";
-import {FIELD_FILTER_SERIALIZER} from "@scx-js/scx-data/field_filter/serializer/FieldFilterSerializer.js";
+import {FIELD_FILTER_SERIALIZER, QUERY_SERIALIZER} from "@scx-js/scx-data";
 
 
 class ScxCrud {
