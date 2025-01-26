@@ -57,7 +57,6 @@ const ScxAdminComponent = {
         //安装组件
         components.forEach(c => {
             app.component(c.name, c);
-            console.log(c);
         });
         //安装指令
         directives.forEach(d => app.directive(d.name, d));
