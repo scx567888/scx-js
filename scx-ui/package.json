@@ -16,9 +16,9 @@
     "url": "https://github.com/scx567888/scx-js.git"
   },
   "dependencies": {
-    "@scx-js/scx-common": "0.0.3",
-    "@scx-js/scx-app-x": "0.0.3",
-    "@scx-js/scx-dom": "0.0.3"
+    "@scx-js/scx-common": "^0.0.3",
+    "@scx-js/scx-app-x": "^0.0.3",
+    "@scx-js/scx-dom": "^0.0.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",

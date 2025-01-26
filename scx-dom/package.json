@@ -9,5 +9,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/scx567888/scx-js.git"
+  },
+  "dependencies": {
+    "@scx-js/scx-common": "^0.0.3"
   }
 }
