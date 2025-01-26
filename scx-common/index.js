@@ -1,7 +1,3 @@
-export * from "../scx-dom/Download.js";
-export * from "../scx-dom/FixedElement.js";
-export * from "../scx-dom/HtmlToText.js";
-export * from "../scx-dom/Watermark.js";
 export * from "./multi_map/MultiMap.js";
 export * from "./tree/ScxTreeHelper.js";
 export * from "./util/ArrayUtils.js";
