@@ -11,7 +11,7 @@
 import "./index.css";
 import {nextTick, onMounted, ref} from "vue";
 import {closeContextMenu} from "./index.js";
-import {isFunction} from "../../scx-common/index.js";
+import {isFunction} from "@scx-js/scx-common";
 
 export default {
     name: "scx-context-menu",
