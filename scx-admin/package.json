@@ -1,6 +1,6 @@
 {
   "name": "@scx-js/scx-admin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "SCX Admin",
   "license": "MIT",
   "author": "scx567888",
@@ -16,10 +16,10 @@
     "url": "https://github.com/scx567888/scx-js.git"
   },
   "dependencies": {
-    "@scx-js/scx-app-x": "0.0.4",
-    "@scx-js/scx-common": "0.0.4",
-    "@scx-js/scx-dom": "0.0.4",
-    "@scx-js/scx-http": "0.0.4",
+    "@scx-js/scx-app-x": "0.0.5",
+    "@scx-js/scx-common": "0.0.5",
+    "@scx-js/scx-dom": "0.0.5",
+    "@scx-js/scx-http": "0.0.5",
     "element-plus": "^2.9.3",
     "nprogress": "^0.2.0"
   },

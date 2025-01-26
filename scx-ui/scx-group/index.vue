@@ -31,7 +31,8 @@
 <script>
 import "./index.css";
 import {computed} from "vue";
-import {fixedElement, moveDownByIndex, moveUpByIndex, removeByIndex} from "../../scx-common/index.js";
+import { moveDownByIndex, moveUpByIndex, removeByIndex} from "@scx-js/scx-common";
+import {fixedElement} from "@scx-js/scx-dom";
 
 export default {
     name: "scx-group",
