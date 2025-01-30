@@ -87,4 +87,4 @@ createApp(App)
 
 ## Stats
 
-![Alt](https://repobeats.axiom.co/api/embed/e6bbe7c4f1f5ca53b3d47becda0e735766bef33a.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/629bece55bf6fe25ba74a28a50bff9488c68da44.svg "Repobeats analytics image")
