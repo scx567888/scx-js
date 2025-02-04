@@ -10,7 +10,7 @@ import {createScxUploadAdapterPlugin} from "./plugins/scx-upload-adapter.js";
 import {ClassicEditor, InlineEditor} from "ckeditor5";
 import "ckeditor5/ckeditor5.css";
 import {defaultEditorConfig} from "./default-editor-config.js";
-import {useScxFSS} from "scx-ui/scx/scx-fss";
+import {useScxFSS} from "@scx-js/scx-app-x";
 
 export default {
     name: "easy-ckeditor",

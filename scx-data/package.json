@@ -1,6 +1,6 @@
 {
   "name": "@scx-js/scx-data",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "SCX Data",
   "license": "MIT",
   "author": "scx567888",
@@ -11,6 +11,6 @@
     "url": "https://github.com/scx567888/scx-js.git"
   },
   "dependencies": {
-    "@scx-js/scx-common": "0.0.6"
+    "@scx-js/scx-common": "0.0.7"
   }
 }
