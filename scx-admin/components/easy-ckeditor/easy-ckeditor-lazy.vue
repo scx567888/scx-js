@@ -8,7 +8,7 @@
 import "./easy-ckeditor-lazy.css";
 import {onMounted, ref, watch} from "vue";
 import {createScxUploadAdapterPlugin} from "./plugins/scx-upload-adapter.js";
-import {useScxFSS} from "scx-ui/scx/scx-fss";
+import {useScxFSS} from "@scx-js/scx-app-x";
 import {InlineEditor} from "ckeditor5";
 import {debounce} from "lodash-es";
 import {defaultEditorConfig} from "./default-editor-config.js";
