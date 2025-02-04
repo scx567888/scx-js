@@ -194,6 +194,7 @@ const defaultEditorConfig = {
         ],
     },
     translations: [zhCNTranslations],
+    licenseKey:"GPL"
 };
 
 export {defaultEditorConfig};
