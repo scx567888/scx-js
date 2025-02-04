@@ -100,6 +100,8 @@ class ScxAuth {
             this.req.post("api/auth/login", {
                 username: username.trim(),
                 password: password,
+            }, {
+                headers: this.AuthHeaders(),
             }).then(data => {
                 this.setToken(data.token);
                 resolve(data.token);
