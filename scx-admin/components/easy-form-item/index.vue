@@ -6,7 +6,7 @@
 
 <script>
 import {computed} from "vue";
-import {notBlank} from "@scx-js/scx-common";
+import {notBlank, randomUUID} from "@scx-js/scx-common";
 import {checkIDCard, checkPhoneNumber, useCrudContext,} from "../../index.js";
 
 export default {
@@ -61,7 +61,7 @@ export default {
 
         const crudContext = useCrudContext();
 
-        const easyProp = computed(() => props.prop ? props.prop : getUUID());
+        const easyProp = computed(() => props.prop ? props.prop : randomUUID());
 
         const easyLabel = computed(() => {
             if (props.label) {
