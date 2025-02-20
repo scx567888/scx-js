@@ -6,14 +6,14 @@
         </template>
 
         <template #header-right>
-            <el-input placeholder="name" v-model="crudContext.where.name" style="width: 100px"/>
+            <el-input v-model="crudContext.where.name" placeholder="name" style="width: 100px"/>
             <crud-search-button/>
             <crud-reset-button/>
         </template>
 
         <template #main>
             <crud-table>
-                <el-table-column label="名称" sortable prop="name"></el-table-column>
+                <el-table-column label="名称" prop="name" sortable></el-table-column>
                 <el-table-column fixed="right" label="操作" width="200">
                     <template #default="{row}">
                         <crud-table-edit-button :data="row"/>
