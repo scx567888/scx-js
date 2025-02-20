@@ -150,12 +150,17 @@ class CrudContext {
                     baseCrudApi,
                     defaultTemp = {},
                     defaultWhere = {},
+                    scxCrud = null,
                 } = {}) {
         this.req = useScxReq();
         this.userInfo = useScxUserInfo();
         this.defaultTemp = defaultTemp;
         this.defaultWhere = defaultWhere;
-        this.scxCrud = new ScxCrud(this.req, baseCrudApi);
+        if (scxCrud) {
+            this.scxCrud = scxCrud;
+        } else {
+            this.scxCrud = new ScxCrud(this.req, baseCrudApi);
+        }
 
         //重置全部对象
         this.resetPagination();
@@ -246,7 +251,9 @@ class CrudContext {
         q.offset((this.pagination.currentPage - 1) * this.pagination.pageSize);
 
         //2, 设置 orderBy
-        q.orderBy(new OrderBy(this.orderBy.fieldName, this.orderBy.sortType));
+        if (this.orderBy.sortType) {
+            q.orderBy(new OrderBy(this.orderBy.fieldName, this.orderBy.sortType));
+        }
 
         //3, 设置 where
 
