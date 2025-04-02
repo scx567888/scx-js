@@ -47,7 +47,7 @@ function moveUpByIndex(list, index, loop = false, step = 1) {
     if (nextIndex < minIndex) {
         nextIndex = loop ? nextIndex % list.length + list.length : minIndex;
     }
-    return moveItemByIndex(list, index, nextIndex);
+    moveItemByIndex(list, index, nextIndex);
 }
 
 /**
@@ -63,7 +63,7 @@ function moveDownByIndex(list, index, loop = false, step = 1) {
     if (nextIndex > maxIndex) {
         nextIndex = loop ? nextIndex % list.length : maxIndex;
     }
-    return moveItemByIndex(list, index, nextIndex);
+    moveItemByIndex(list, index, nextIndex);
 }
 
 /**
@@ -72,7 +72,10 @@ function moveDownByIndex(list, index, loop = false, step = 1) {
  * @param item
  */
 function removeByItem(list, item) {
-    return removeByIndex(list, list.indexOf(item));
+    let indexOf = list.indexOf(item);
+    if (indexOf !== -1) {
+        removeByIndex(list, indexOf);
+    }
 }
 
 /**
@@ -83,7 +86,10 @@ function removeByItem(list, item) {
  * @param step 步长
  */
 function moveUpByItem(list, item, loop = false, step = 1) {
-    return moveUpByIndex(list, list.indexOf(item), loop, step);
+    let indexOf = list.indexOf(item);
+    if (indexOf !== -1) {
+        moveUpByIndex(list, indexOf, loop, step);
+    }
 }
 
 /**
@@ -94,7 +100,10 @@ function moveUpByItem(list, item, loop = false, step = 1) {
  * @param step 步长
  */
 function moveDownByItem(list, item, loop = false, step = 1) {
-    return moveDownByIndex(list, list.indexOf(item), loop, step);
+    let indexOf = list.indexOf(item);
+    if (indexOf !== -1) {
+        moveDownByIndex(list, indexOf, loop, step);
+    }
 }
 
 /**
@@ -125,6 +134,36 @@ function arrayEquals(array1, array2) {
     return true;
 }
 
+/**
+ * 根据 项 从数组中移除所有匹配的项
+ * @param list
+ * @param item
+ */
+function removeAllByItem(list, item) {
+    for (let i = list.length - 1; i >= 0; i--) {
+        if (list[i] === item) {
+            removeByIndex(list, i);
+        }
+    }
+}
+
+/**
+ * 直接去重原数组 - 使用临时列表记录已出现过的元素
+ * @param list
+ */
+function uniqueArray(list) {
+    const seen = new Set();
+    let j = 0;
+    for (let i = 0; i < list.length; i++) {
+        const item = list[i];
+        if (!seen.has(item)) {
+            seen.add(item);
+            list[j++] = item; // 将唯一元素移到数组前方
+        }
+    }
+    list.length = j; // 截断数组长度
+}
+
 export {
     copyArray,
     removeByIndex,
@@ -135,4 +174,6 @@ export {
     moveDownByItem,
     insertItem,
     arrayEquals,
+    removeAllByItem,
+    uniqueArray,
 };
