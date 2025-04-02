@@ -1,13 +1,13 @@
 import {
+    arrayEquals,
     copyArray,
-    removeByIndex,
-    moveUpByIndex,
-    moveDownByIndex,
-    removeByItem,
-    moveUpByItem,
-    moveDownByItem,
     insertItem,
-    arrayEquals
+    moveDownByIndex,
+    moveDownByItem,
+    moveUpByIndex,
+    moveUpByItem,
+    removeByIndex,
+    removeByItem,
 } from "../index.js"; // 请确保你的工具类文件名匹配
 
 function assert(condition, message) {
