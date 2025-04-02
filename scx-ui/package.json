@@ -1,6 +1,6 @@
 {
   "name": "@scx-js/scx-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SCX UI",
   "license": "MIT",
   "author": "scx567888",
@@ -16,9 +16,9 @@
     "url": "https://github.com/scx567888/scx-js.git"
   },
   "dependencies": {
-    "@scx-js/scx-common": "0.1.0",
-    "@scx-js/scx-app-x": "0.1.0",
-    "@scx-js/scx-dom": "0.1.0"
+    "@scx-js/scx-common": "0.1.1",
+    "@scx-js/scx-app-x": "0.1.1",
+    "@scx-js/scx-dom": "0.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
