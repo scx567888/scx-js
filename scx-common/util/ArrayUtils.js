@@ -47,7 +47,7 @@ function moveUpByIndex(list, index, loop = false, step = 1) {
     if (nextIndex < minIndex) {
         nextIndex = loop ? nextIndex % list.length + list.length : minIndex;
     }
-    return moveItemByIndex(list, index, nextIndex);
+    moveItemByIndex(list, index, nextIndex);
 }
 
 /**
@@ -63,7 +63,7 @@ function moveDownByIndex(list, index, loop = false, step = 1) {
     if (nextIndex > maxIndex) {
         nextIndex = loop ? nextIndex % list.length : maxIndex;
     }
-    return moveItemByIndex(list, index, nextIndex);
+    moveItemByIndex(list, index, nextIndex);
 }
 
 /**
@@ -72,7 +72,10 @@ function moveDownByIndex(list, index, loop = false, step = 1) {
  * @param item
  */
 function removeByItem(list, item) {
-    return removeByIndex(list, list.indexOf(item));
+    let indexOf = list.indexOf(item);
+    if (indexOf !== -1) {
+        removeByIndex(list, indexOf);
+    }
 }
 
 /**
@@ -83,7 +86,10 @@ function removeByItem(list, item) {
  * @param step 步长
  */
 function moveUpByItem(list, item, loop = false, step = 1) {
-    return moveUpByIndex(list, list.indexOf(item), loop, step);
+    let indexOf = list.indexOf(item);
+    if (indexOf !== -1) {
+        moveUpByIndex(list, indexOf, loop, step);
+    }
 }
 
 /**
@@ -94,7 +100,10 @@ function moveUpByItem(list, item, loop = false, step = 1) {
  * @param step 步长
  */
 function moveDownByItem(list, item, loop = false, step = 1) {
-    return moveDownByIndex(list, list.indexOf(item), loop, step);
+    let indexOf = list.indexOf(item);
+    if (indexOf !== -1) {
+        moveDownByIndex(list, indexOf, loop, step);
+    }
 }
 
 /**
