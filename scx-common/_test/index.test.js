@@ -9,7 +9,7 @@ import {
     removeAllByItem,
     removeByIndex,
     removeByItem,
-    uniqueArray // Make sure to import the uniqueArray function
+    uniqueArray,
 } from "../index.js"; // 请确保你的工具类文件名匹配
 
 function assert(condition, message) {

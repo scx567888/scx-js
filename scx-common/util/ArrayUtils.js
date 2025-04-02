@@ -175,5 +175,5 @@ export {
     insertItem,
     arrayEquals,
     removeAllByItem,
-    uniqueArray
+    uniqueArray,
 };
