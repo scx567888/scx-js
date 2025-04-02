@@ -5,9 +5,11 @@ import {
     moveDownByIndex,
     moveDownByItem,
     moveUpByIndex,
-    moveUpByItem, removeAllByItem,
+    moveUpByItem,
+    removeAllByItem,
     removeByIndex,
     removeByItem,
+    uniqueArray // Make sure to import the uniqueArray function
 } from "../index.js"; // 请确保你的工具类文件名匹配
 
 function assert(condition, message) {
@@ -92,5 +94,20 @@ assert(JSON.stringify(arr) === JSON.stringify([]), "removeAllByItem should remov
 arr = ["a", "b", "a", "c", "a"];
 removeAllByItem(arr, "a");
 assert(JSON.stringify(arr) === JSON.stringify(["b", "c"]), "removeAllByItem should work with string elements");
+
+// Test uniqueArray - Remove duplicates
+arr = [1, 2, 2, 3, 3, 3, 4];
+uniqueArray(arr);
+assert(JSON.stringify(arr) === JSON.stringify([1, 2, 3, 4]), "uniqueArray should remove duplicate items");
+
+// Test uniqueArray - No duplicates
+arr = [1, 2, 3, 4];
+uniqueArray(arr);
+assert(JSON.stringify(arr) === JSON.stringify([1, 2, 3, 4]), "uniqueArray should not modify array if no duplicates");
+
+// Test uniqueArray - All duplicates
+arr = [5, 5, 5, 5];
+uniqueArray(arr);
+assert(JSON.stringify(arr) === JSON.stringify([5]), "uniqueArray should handle all duplicates correctly");
 
 console.log("\nAll tests completed.");

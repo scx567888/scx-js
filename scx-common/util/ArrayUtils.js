@@ -152,20 +152,16 @@ function removeAllByItem(list, item) {
  * @param list
  */
 function uniqueArray(list) {
-    let seen = new Set();  // 临时存储已出现的元素
-    let index = 0;  // 用于遍历数组
-
-    while (index < list.length) {
-        let item = list[index];
-        if (seen.has(item)) {
-            // 如果元素已经出现过，移除当前元素
-            list.splice(index, 1);
-        } else {
-            // 否则，记录该元素，并继续遍历
+    const seen = new Set();
+    let j = 0;
+    for (let i = 0; i < list.length; i++) {
+        const item = list[i];
+        if (!seen.has(item)) {
             seen.add(item);
-            index++;
+            list[j++] = item; // 将唯一元素移到数组前方
         }
     }
+    list.length = j; // 截断数组长度
 }
 
 export {
@@ -179,4 +175,5 @@ export {
     insertItem,
     arrayEquals,
     removeAllByItem,
+    uniqueArray
 };
