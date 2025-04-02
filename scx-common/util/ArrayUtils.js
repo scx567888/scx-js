@@ -134,6 +134,40 @@ function arrayEquals(array1, array2) {
     return true;
 }
 
+/**
+ * 根据 项 从数组中移除所有匹配的项
+ * @param list
+ * @param item
+ */
+function removeAllByItem(list, item) {
+    for (let i = list.length - 1; i >= 0; i--) {
+        if (list[i] === item) {
+            removeByIndex(list, i);
+        }
+    }
+}
+
+/**
+ * 直接去重原数组 - 使用临时列表记录已出现过的元素
+ * @param list
+ */
+function uniqueArray(list) {
+    let seen = new Set();  // 临时存储已出现的元素
+    let index = 0;  // 用于遍历数组
+
+    while (index < list.length) {
+        let item = list[index];
+        if (seen.has(item)) {
+            // 如果元素已经出现过，移除当前元素
+            list.splice(index, 1);
+        } else {
+            // 否则，记录该元素，并继续遍历
+            seen.add(item);
+            index++;
+        }
+    }
+}
+
 export {
     copyArray,
     removeByIndex,
@@ -144,4 +178,5 @@ export {
     moveDownByItem,
     insertItem,
     arrayEquals,
+    removeAllByItem,
 };

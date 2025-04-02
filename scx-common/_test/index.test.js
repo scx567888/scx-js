@@ -5,7 +5,7 @@ import {
     moveDownByIndex,
     moveDownByItem,
     moveUpByIndex,
-    moveUpByItem,
+    moveUpByItem, removeAllByItem,
     removeByIndex,
     removeByItem,
 } from "../index.js"; // 请确保你的工具类文件名匹配
@@ -39,6 +39,11 @@ arr = ["x", "y", "z"];
 removeByItem(arr, "y");
 assert(JSON.stringify(arr) === JSON.stringify(["x", "z"]), "removeByItem should remove specific item");
 
+// Test removeByItem when item is not in list
+arr = ["a", "b", "c"];
+removeByItem(arr, "d");
+assert(JSON.stringify(arr) === JSON.stringify(["a", "b", "c"]), "removeByItem should not modify array if item is not present");
+
 // Test moveUpByItem
 arr = ["apple", "banana", "cherry"];
 moveUpByItem(arr, "cherry");
@@ -54,8 +59,38 @@ arr = [1, 2, 3];
 insertItem(arr, 1, 9, 8);
 assert(JSON.stringify(arr) === JSON.stringify([1, 9, 8, 2, 3]), "insertItem should insert items at index");
 
+// Test insertItem at beginning
+arr = [1, 2, 3];
+insertItem(arr, 0, 0);
+assert(JSON.stringify(arr) === JSON.stringify([0, 1, 2, 3]), "insertItem should insert at beginning");
+
+// Test insertItem at end
+arr = [1, 2, 3];
+insertItem(arr, 10, 4);
+assert(JSON.stringify(arr) === JSON.stringify([1, 2, 3, 4]), "insertItem should insert at end if index is out of range");
+
 // Test arrayEquals
 assert(arrayEquals([1, 2, 3], [1, 2, 3]), "arrayEquals should return true for equal arrays");
 assert(!arrayEquals([1, 2, 3], [1, 2, 4]), "arrayEquals should return false for different arrays");
+
+// Test removeAllByItem - Remove all occurrences
+arr = [1, 2, 3, 2, 4, 2, 5];
+removeAllByItem(arr, 2);
+assert(JSON.stringify(arr) === JSON.stringify([1, 3, 4, 5]), "removeAllByItem should remove all occurrences of item");
+
+// Test removeAllByItem - Item not found
+arr = [1, 2, 3, 4, 5];
+removeAllByItem(arr, 6);
+assert(JSON.stringify(arr) === JSON.stringify([1, 2, 3, 4, 5]), "removeAllByItem should not modify array if item is not present");
+
+// Test removeAllByItem - Removing all elements
+arr = [7, 7, 7, 7, 7];
+removeAllByItem(arr, 7);
+assert(JSON.stringify(arr) === JSON.stringify([]), "removeAllByItem should remove all elements if all match");
+
+// Test removeAllByItem - Mixed types
+arr = ["a", "b", "a", "c", "a"];
+removeAllByItem(arr, "a");
+assert(JSON.stringify(arr) === JSON.stringify(["b", "c"]), "removeAllByItem should work with string elements");
 
 console.log("\nAll tests completed.");
