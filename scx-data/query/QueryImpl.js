@@ -24,20 +24,20 @@ class QueryImpl extends Query {
 
     where(...whereClauses) {
         this.clearWhere();
-        this.#addWhere(...whereClauses);
+        this.addWhere(...whereClauses);
         return this;
     }
 
     groupBy(...groupByClauses) {
         this.clearGroupBy();
-        this.#addGroupBy(...groupByClauses);
+        this.addGroupBy(...groupByClauses);
         return this;
     }
 
 
     orderBy(...orderByClauses) {
         this.clearOrderBy();
-        this.#addOrderBy(...orderByClauses);
+        this.addOrderBy(...orderByClauses);
         return this;
     }
 
