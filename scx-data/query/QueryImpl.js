@@ -96,13 +96,13 @@ class QueryImpl extends Query {
         return this;
     }
 
-    #addWhere(...whereClauses) {
+    addWhere(...whereClauses) {
         for (let whereClause of whereClauses) {
             if (whereClause == null) {
                 continue;
             }
             if (Array.isArray(whereClause)) {
-                this.#addWhere(...whereClause);
+                this.addWhere(...whereClause);
                 continue;
             }
             this.#where.push(whereClause);
@@ -110,13 +110,13 @@ class QueryImpl extends Query {
         return this;
     }
 
-    #addGroupBy(...groupByClauses) {
+    addGroupBy(...groupByClauses) {
         for (let groupByClause of groupByClauses) {
             if (groupByClause == null) {
                 continue;
             }
             if (Array.isArray(groupByClause)) {
-                this.#addGroupBy(...groupByClause);
+                this.addGroupBy(...groupByClause);
                 continue;
             }
             this.#groupBy.push(groupByClause);
@@ -124,17 +124,32 @@ class QueryImpl extends Query {
         return this;
     }
 
-    #addOrderBy(...orderByClauses) {
+    addOrderBy(...orderByClauses) {
         for (let orderByClause of orderByClauses) {
             if (orderByClause == null) {
                 continue;
             }
             if (Array.isArray(orderByClause)) {
-                this.#addOrderBy(...orderByClause);
+                this.addOrderBy(...orderByClause);
                 continue;
             }
             this.#orderBy.push(orderByClause);
         }
+        return this;
+    }
+
+    removeWhereIf(filter) {
+        removeIf(this.#where, filter);
+        return this;
+    }
+
+    removeGroupByIf(filter) {
+        removeIf(this.#groupBy, filter);
+        return this;
+    }
+
+    removeOrderByIf(filter) {
+        removeIf(this.#orderBy, filter);
         return this;
     }
 
