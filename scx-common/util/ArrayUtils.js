@@ -140,11 +140,7 @@ function arrayEquals(array1, array2) {
  * @param item
  */
 function removeAllByItem(list, item) {
-    for (let i = list.length - 1; i >= 0; i--) {
-        if (list[i] === item) {
-            removeByIndex(list, i);
-        }
-    }
+    removeIf(list, (c) => c === item);
 }
 
 /**
@@ -164,6 +160,14 @@ function uniqueArray(list) {
     list.length = j; // 截断数组长度
 }
 
+function removeIf(list, filter) {
+    for (let i = list.length - 1; i >= 0; i--) { // 从后向前遍历，避免索引错位
+        if (filter(list[i])) {
+            removeByIndex(list, i);
+        }
+    }
+}
+
 export {
     copyArray,
     removeByIndex,
@@ -176,4 +180,5 @@ export {
     arrayEquals,
     removeAllByItem,
     uniqueArray,
+    removeIf,
 };

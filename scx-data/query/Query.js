@@ -55,6 +55,30 @@ class Query {
         return this;
     }
 
+    addWhere(... whereClauses){
+        return this;
+    }
+
+    addGroupBy(... groupByClauses){
+        return this;
+    }
+
+    addOrderBy(... orderByClauses){
+        return this;
+    }
+
+    removeWhereIf(filter){
+        return this;
+    }
+
+    removeGroupByIf(filter){
+        return this;
+    }
+
+    removeOrderByIf(filter){
+        return this;
+    }
+
 }
 
 export {Query};
