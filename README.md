@@ -66,10 +66,10 @@ export default {
 ```javascript
 import {createApp} from 'vue';
 import {ScxComponent} from '@scx-js/scx-ui';
-import App from './App.vue';
 import '@scx-js/scx-ui/style/default.css'; // Don't forget to import theme
 import '@scx-js/scx-ui/style/dark.css';
 import 'scx-icon/register'; //if type = js you need import this virtual module
+import App from './App.vue';
 
 createApp(App)
     .use(ScxComponent)

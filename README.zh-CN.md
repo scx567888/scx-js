@@ -66,10 +66,10 @@ export default {
 ```javascript
 import {createApp} from 'vue';
 import {ScxComponent} from '@scx-js/scx-ui';
-import App from './App.vue';
 import '@scx-js/scx-ui/style/default.css'; // 别忘了导入主题
 import '@scx-js/scx-ui/style/dark.css';
 import 'scx-icon/register'; //如果 type = js 则需要再次引入虚拟模块
+import App from './App.vue';
 
 createApp(App)
     .use(ScxComponent)
