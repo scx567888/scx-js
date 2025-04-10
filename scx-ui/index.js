@@ -1,5 +1,6 @@
 export * from "./scx-context-menu/index.js";
 export * from "./scx-drag/index.js";
+export * from "./style/changeTheme.js"
 
 import ScxGroup from "./scx-group/index.vue";
 import ScxIcon from "./scx-icon/index.vue";

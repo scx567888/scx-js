@@ -240,6 +240,7 @@ class ScxRouter {
     }
 
     install(app) {
+        this.vueRouter.install(app);
         app.provide(scxRouterKey, this);
     }
 
