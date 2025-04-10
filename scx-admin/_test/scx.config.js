@@ -6,7 +6,7 @@ const dev = {
         dark: true,// 是否开启暗黑模式
         menuCollapse: false,// 是否折叠菜单
     },
-    baseApiUrl: "http://xxxxx:8080/",//后台 api 地址
+    baseApiUrl: "http://127.0.0.1:8080/",//后台 api 地址
 
 };
 
