@@ -54,6 +54,16 @@ const routes = [
                     perms: [],
                 },
             },
+            {
+                path: "a3",
+                name: "a3",
+                component: () => import("./views/a3.vue"),
+                meta: {
+                    title: "A3",
+                    icon: "filled-dashboard",
+                    perms: [],
+                },
+            },
         ],
     },
     NotFoundRoute,
