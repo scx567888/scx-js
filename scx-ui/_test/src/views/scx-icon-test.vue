@@ -68,6 +68,7 @@ export default {
     border: 2px solid #6f7ad3;
     margin: 5px;
     transition: transform 80ms;
+    color: #489349;
 }
 
 .icon-item:hover {
@@ -77,9 +78,5 @@ export default {
 .icon-item > .scx-icon {
     width: 100%;
     height: 100%;
-}
-
-.test-app svg {
-    fill: #489349;
 }
 </style>
