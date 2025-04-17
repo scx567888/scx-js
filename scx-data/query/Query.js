@@ -55,27 +55,27 @@ class Query {
         return this;
     }
 
-    addWhere(... whereClauses){
+    addWhere(...whereClauses) {
         return this;
     }
 
-    addGroupBy(... groupByClauses){
+    addGroupBy(...groupByClauses) {
         return this;
     }
 
-    addOrderBy(... orderByClauses){
+    addOrderBy(...orderByClauses) {
         return this;
     }
 
-    removeWhereIf(filter){
+    removeWhereIf(filter) {
         return this;
     }
 
-    removeGroupByIf(filter){
+    removeGroupByIf(filter) {
         return this;
     }
 
-    removeOrderByIf(filter){
+    removeOrderByIf(filter) {
         return this;
     }
 

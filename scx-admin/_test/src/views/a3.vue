@@ -8,7 +8,7 @@
 import {ref} from "vue";
 import EasyMonacoEditor from "../../../components/easy-monaco-editor/index.vue";
 
-const text=ref(`
+const text = ref(`
 function main(){
     console.log(123);
 }

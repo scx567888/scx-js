@@ -1,5 +1,5 @@
 import {Query} from "./Query.js";
-import {removeIf} from "@scx-js/scx-common"
+import {removeIf} from "@scx-js/scx-common";
 
 class QueryImpl extends Query {
 
