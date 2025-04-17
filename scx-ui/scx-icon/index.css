@@ -1,4 +1,7 @@
 .scx-icon {
+    /* 默认和文字一样大小 */
     width: 1em;
     height: 1em;
+    /* 默认和文字一个颜色 */
+    fill: currentColor;
 }
