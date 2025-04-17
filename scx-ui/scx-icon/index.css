@@ -1,7 +1,16 @@
 .scx-icon {
-    /* 默认和文字一样大小 */
+    /* 防止宽高失效 */
+    display: inline-block;
+    /* 继承字体大小，跟随文字缩放 */
     width: 1em;
+    /* 保持正方形，视觉一致 */
     height: 1em;
-    /* 默认和文字一个颜色 */
+    /* 继承文字颜色，自动适配上下文样式 */
     fill: currentColor;
+    /* 在 flex 布局下防止图标被压缩 */
+    flex-shrink: 0;
+    /* 行内视觉居中 这是一个经验值 */
+    vertical-align: -0.125em;
+    /* 默认穿透 */
+    pointer-events: none;
 }
