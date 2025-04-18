@@ -15,7 +15,7 @@ function excludedAll() {
  * @return {FieldPolicy}
  */
 function included(...fieldNames) {
-    return excludedAll().included(fieldNames);
+    return excludedAll().included(...fieldNames);
 }
 
 /**
@@ -24,7 +24,7 @@ function included(...fieldNames) {
  * @return {FieldPolicy}
  */
 function excluded(...fieldNames) {
-    return includedAll().excluded(fieldNames);
+    return includedAll().excluded(...fieldNames);
 }
 
 function ignoreNullValue(ignoreNullValue) {
