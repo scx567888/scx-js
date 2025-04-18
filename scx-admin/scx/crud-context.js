@@ -276,7 +276,7 @@ class CrudContext {
 
         return {
             query: q,
-            fieldFilter: f,
+            fieldPolicy: f,
             extParams: {},
         };
     }

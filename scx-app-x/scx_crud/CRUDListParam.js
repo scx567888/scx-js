@@ -5,7 +5,7 @@ class CRUDListParam {
      */
     query;
 
-    fieldFilter;
+    fieldPolicy;
 
     extParams;
 
