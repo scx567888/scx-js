@@ -1,6 +1,6 @@
 {
   "name": "@scx-js/scx-admin",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "SCX Admin",
   "license": "MIT",
   "author": "scx567888",
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-vue": "^7.0.0",
-    "@scx-js/scx-app-x": "0.1.5",
-    "@scx-js/scx-common": "0.1.5",
-    "@scx-js/scx-dom": "0.1.5",
-    "@scx-js/scx-http": "0.1.5",
+    "@scx-js/scx-app-x": "0.1.6",
+    "@scx-js/scx-common": "0.1.6",
+    "@scx-js/scx-dom": "0.1.6",
+    "@scx-js/scx-http": "0.1.6",
     "ckeditor5": "^45.0.0",
     "element-plus": "^2.9.7",
     "lodash-es": "^4.17.21",
