@@ -1,20 +1,22 @@
 import {EXCLUDED, INCLUDED} from "./FilterMode.js";
-import {FieldFilter} from "./FieldFilter.js";
+import {FieldPolicy} from "./FieldPolicy.js";
 
-class FieldFilterImpl extends FieldFilter {
+class FieldPolicyImpl extends FieldPolicy {
 
     #filterMode;
     #fieldNames;
+    #fieldExpressions;
     #ignoreNullValue;
 
     constructor(filterMode) {
         super();
         this.#filterMode = filterMode;
         this.#fieldNames = new Set();
+        this.#fieldExpressions = new Map();
         this.#ignoreNullValue = true;
     }
 
-    addIncluded(...fieldNames) {
+    included(...fieldNames) {
         if (this.#filterMode === INCLUDED) {
             this.addFieldNames(...fieldNames);
         } else if (this.#filterMode === EXCLUDED) {
@@ -23,7 +25,7 @@ class FieldFilterImpl extends FieldFilter {
         return this;
     }
 
-    addExcluded(...fieldNames) {
+    excluded(...fieldNames) {
         if (this.#filterMode === EXCLUDED) {
             this.addFieldNames(...fieldNames);
         } else if (this.#filterMode === INCLUDED) {
@@ -32,12 +34,17 @@ class FieldFilterImpl extends FieldFilter {
         return this;
     }
 
-    removeIncluded(...fieldNames) {
-        return this.addExcluded(...fieldNames);
+    filterMode() {
+        return this.#filterMode;
     }
 
-    removeExcluded(...fieldNames) {
-        return this.addIncluded(...fieldNames);
+    fieldNames() {
+        return Array.from(this.#fieldNames);
+    }
+
+    clearFieldNames() {
+        this.#fieldNames.clear();
+        return this;
     }
 
     ignoreNullValue(ignoreNullValue) {
@@ -45,20 +52,21 @@ class FieldFilterImpl extends FieldFilter {
         return this;
     }
 
-    getFilterMode() {
-        return this.#filterMode;
-    }
-
-    getFieldNames() {
-        return Array.from(this.#fieldNames);
-    }
-
-    getIgnoreNullValue() {
+    ignoreNullValue_() {
         return this.#ignoreNullValue;
     }
 
-    clear() {
-        this.#fieldNames.clear();
+    fieldExpression(fieldName, expression) {
+        this.#fieldExpressions.set(fieldName, expression);
+        return this;
+    }
+
+    fieldExpressions() {
+        return this.#fieldExpressions;
+    }
+
+    clearFieldExpressions() {
+        this.#fieldExpressions.clear();
         return this;
     }
 
@@ -78,4 +86,4 @@ class FieldFilterImpl extends FieldFilter {
 
 }
 
-export {FieldFilterImpl};
+export {FieldPolicyImpl};
