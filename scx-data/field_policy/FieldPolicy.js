@@ -17,20 +17,35 @@ class FieldPolicy {
     clearFieldNames() {
     }
 
-    ignoreNullValue(ignoreNullValue) {
+    ignoreNull(ignoreNullValue) {
         return this;
     }
 
-    ignoreNullValue_() {
+    ignoreNull_() {
     }
 
-    fieldExpression(fieldName, expression) {
+    ignoreNull__(fieldName, ignoreNullValue) {
     }
 
-    fieldExpressions() {
+    removeIgnoreNull(fieldName) {
     }
 
-    clearFieldExpressions() {
+    ignoreNulls() {
+    }
+
+    clearIgnoreNulls() {
+    }
+
+    expression(fieldName, expression) {
+    }
+
+    expressions() {
+    }
+
+    removeExpression(fieldName) {
+    }
+
+    clearExpressions() {
     }
 
 }

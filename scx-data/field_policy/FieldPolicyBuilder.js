@@ -27,12 +27,16 @@ function excluded(...fieldNames) {
     return includedAll().excluded(...fieldNames);
 }
 
-function ignoreNullValue(ignoreNullValue) {
-    return includedAll().ignoreNullValue(ignoreNullValue);
+function ignoreNull(ignoreNull) {
+    return includedAll().ignoreNull(ignoreNull);
 }
 
-function fieldExpression(fieldName, expression) {
-    return includedAll().fieldExpression(fieldName, expression);
+function ignoreNull__(fieldName, ignoreNull) {
+    return includedAll().ignoreNull__(fieldName, ignoreNull);
+}
+
+function expression(fieldName, expression) {
+    return includedAll().expression(fieldName, expression);
 }
 
 export {
@@ -40,6 +44,7 @@ export {
     excludedAll,
     included,
     excluded,
-    ignoreNullValue,
-    fieldExpression,
+    ignoreNull,
+    ignoreNull__,
+    expression,
 };

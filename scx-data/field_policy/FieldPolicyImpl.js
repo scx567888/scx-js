@@ -5,15 +5,17 @@ class FieldPolicyImpl extends FieldPolicy {
 
     #filterMode;
     #fieldNames;
-    #fieldExpressions;
-    #ignoreNullValue;
+    #expressions;
+    #ignoreNulls;
+    #ignoreNull;
 
     constructor(filterMode) {
         super();
         this.#filterMode = filterMode;
         this.#fieldNames = new Set();
-        this.#fieldExpressions = new Map();
-        this.#ignoreNullValue = true;
+        this.#expressions = new Map();
+        this.#ignoreNulls = new Map();
+        this.#ignoreNull = true;
     }
 
     included(...fieldNames) {
@@ -47,26 +49,50 @@ class FieldPolicyImpl extends FieldPolicy {
         return this;
     }
 
-    ignoreNullValue(ignoreNullValue) {
-        this.#ignoreNullValue = ignoreNullValue;
+    ignoreNull(ignoreNullValue) {
+        this.#ignoreNull = ignoreNullValue;
         return this;
     }
 
-    ignoreNullValue_() {
-        return this.#ignoreNullValue;
+    ignoreNull_() {
+        return this.#ignoreNull;
     }
 
-    fieldExpression(fieldName, expression) {
-        this.#fieldExpressions.set(fieldName, expression);
+    ignoreNull__(fieldName, ignoreNull) {
+        this.#ignoreNulls.set(fieldName, ignoreNull);
         return this;
     }
 
-    fieldExpressions() {
-        return this.#fieldExpressions;
+    removeIgnoreNull(fieldName) {
+        this.#ignoreNulls.delete(fieldName);
+        return this;
     }
 
-    clearFieldExpressions() {
-        this.#fieldExpressions.clear();
+    ignoreNulls() {
+        return this.#ignoreNulls;
+    }
+
+    clearIgnoreNulls() {
+        this.#ignoreNulls.clear();
+        return this;
+    }
+
+    expression(fieldName, expression) {
+        this.#expressions.set(fieldName, expression);
+        return this;
+    }
+
+    expressions() {
+        return this.#expressions;
+    }
+
+    removeExpression(fieldName) {
+        this.#expressions.delete(fieldName);
+        return this;
+    }
+
+    clearExpressions() {
+        this.#expressions.clear();
         return this;
     }
 
