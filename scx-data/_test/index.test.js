@@ -12,7 +12,7 @@ let serializeQuery1 = QUERY_SERIALIZER.serializeQuery(d);
 
 console.log(serializeQuery1);
 
-let fff = included("name").ignoreNull__("aaaa", true).expression("name","name + 1");
+let fff = included("name").ignoreNull__("aaaa", true).expression("name", "name + 1");
 
 let fgg = FIELD_POLICY_SERIALIZER.serializeFieldPolicy(fff);
 

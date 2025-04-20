@@ -24,16 +24,16 @@ class FieldPolicy {
     ignoreNull_() {
     }
 
-    ignoreNull__(fieldName,ignoreNullValue) {
+    ignoreNull__(fieldName, ignoreNullValue) {
     }
 
-    removeIgnoreNull(fieldName){
+    removeIgnoreNull(fieldName) {
     }
 
-    ignoreNulls(){
+    ignoreNulls() {
     }
 
-    clearIgnoreNulls(){
+    clearIgnoreNulls() {
     }
 
     expression(fieldName, expression) {
@@ -42,7 +42,7 @@ class FieldPolicy {
     expressions() {
     }
 
-    removeExpression(fieldName){
+    removeExpression(fieldName) {
     }
 
     clearExpressions() {

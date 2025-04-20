@@ -86,7 +86,7 @@ class FieldPolicyImpl extends FieldPolicy {
         return this.#expressions;
     }
 
-    removeExpression(fieldName){
+    removeExpression(fieldName) {
         this.#expressions.delete(fieldName);
         return this;
     }

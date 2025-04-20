@@ -31,8 +31,8 @@ function ignoreNull(ignoreNull) {
     return includedAll().ignoreNull(ignoreNull);
 }
 
-function ignoreNull__(fieldName,ignoreNull) {
-    return includedAll().ignoreNull__(fieldName,ignoreNull);
+function ignoreNull__(fieldName, ignoreNull) {
+    return includedAll().ignoreNull__(fieldName, ignoreNull);
 }
 
 function expression(fieldName, expression) {
