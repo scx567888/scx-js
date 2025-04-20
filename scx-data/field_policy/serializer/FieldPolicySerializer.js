@@ -14,8 +14,9 @@ class FieldPolicySerializer {
             "@type": "FieldPolicy",
             "filterMode": fieldPolicy.filterMode(),
             "fieldNames": fieldPolicy.fieldNames(),
-            "ignoreNullValue": fieldPolicy.ignoreNullValue_(),
-            "fieldExpressions": fieldPolicy.fieldExpressions(),
+            "ignoreNull": fieldPolicy.ignoreNull_(),
+            "ignoreNulls": fieldPolicy.ignoreNulls(),
+            "expressions": fieldPolicy.expressions(),
         };
     }
 
