@@ -18,7 +18,7 @@ class FieldPolicyImpl extends FieldPolicy {
         this.#ignoreNull = true;
     }
 
-    included(...fieldNames) {
+    include(...fieldNames) {
         if (this.#filterMode === INCLUDED) {
             this.addFieldNames(...fieldNames);
         } else if (this.#filterMode === EXCLUDED) {
@@ -27,7 +27,7 @@ class FieldPolicyImpl extends FieldPolicy {
         return this;
     }
 
-    excluded(...fieldNames) {
+    exclude(...fieldNames) {
         if (this.#filterMode === EXCLUDED) {
             this.addFieldNames(...fieldNames);
         } else if (this.#filterMode === INCLUDED) {

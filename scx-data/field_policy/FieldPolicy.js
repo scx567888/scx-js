@@ -1,10 +1,10 @@
 class FieldPolicy {
 
-    included(...fieldNames) {
+    include(...fieldNames) {
         return this;
     }
 
-    excluded(...fieldNames) {
+    exclude(...fieldNames) {
         return this;
     }
 

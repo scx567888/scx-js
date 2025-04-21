@@ -1,11 +1,11 @@
 import {FieldPolicyImpl} from "./FieldPolicyImpl.js";
 import {EXCLUDED, INCLUDED} from "./FilterMode.js";
 
-function includedAll() {
+function includeAll() {
     return new FieldPolicyImpl(EXCLUDED);
 }
 
-function excludedAll() {
+function excludeAll() {
     return new FieldPolicyImpl(INCLUDED);
 }
 
@@ -14,8 +14,8 @@ function excludedAll() {
  * @param fieldNames
  * @return {FieldPolicy}
  */
-function included(...fieldNames) {
-    return excludedAll().included(...fieldNames);
+function include(...fieldNames) {
+    return excludeAll().include(...fieldNames);
 }
 
 /**
@@ -23,27 +23,27 @@ function included(...fieldNames) {
  * @param fieldNames
  * @return {FieldPolicy}
  */
-function excluded(...fieldNames) {
-    return includedAll().excluded(...fieldNames);
+function exclude(...fieldNames) {
+    return includeAll().exclude(...fieldNames);
 }
 
 function ignoreNull(ignoreNull) {
-    return includedAll().ignoreNull(ignoreNull);
+    return includeAll().ignoreNull(ignoreNull);
 }
 
 function ignoreNull__(fieldName, ignoreNull) {
-    return includedAll().ignoreNull__(fieldName, ignoreNull);
+    return includeAll().ignoreNull__(fieldName, ignoreNull);
 }
 
 function expression(fieldName, expression) {
-    return includedAll().expression(fieldName, expression);
+    return includeAll().expression(fieldName, expression);
 }
 
 export {
-    includedAll,
-    excludedAll,
-    included,
-    excluded,
+    includeAll,
+    excludeAll,
+    include,
+    exclude,
     ignoreNull,
     ignoreNull__,
     expression,
