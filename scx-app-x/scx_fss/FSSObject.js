@@ -5,6 +5,7 @@ class FSSObject {
     fileHash;//文件 hash
     fileSizeDisplay;//文件大小 格式化值
     fileSize;//文件大小
+    fileExtension;//文件拓展名
 
     constructor({
                     fssObjectID,
@@ -13,6 +14,7 @@ class FSSObject {
                     fileHash,
                     fileSizeDisplay,
                     fileSize,
+                    fileExtension,
                 }) {
         this.fssObjectID = fssObjectID;
         this.fileName = fileName;
@@ -20,6 +22,7 @@ class FSSObject {
         this.fileHash = fileHash;
         this.fileSizeDisplay = fileSizeDisplay;
         this.fileSize = fileSize;
+        this.fileExtension = fileExtension;
     }
 }
 
