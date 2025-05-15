@@ -2,7 +2,9 @@ import {Where} from "../Where.js";
 import {isArray} from "@scx-js/scx-common";
 import {Query} from "../Query.js";
 import {WhereClause} from "../WhereClause.js";
-import {Logic} from "../Logic.js";
+import {And} from "../And.js";
+import {Or} from "../Or.js";
+import {Not} from "../Not.js";
 
 class WhereSerializer {
 
@@ -13,8 +15,14 @@ class WhereSerializer {
         if (obj instanceof WhereClause) {
             return this.serializeWhereClause(obj);
         }
-        if (obj instanceof Logic) {
-            return this.serializeLogic(obj);
+        if (obj instanceof And) {
+            return this.serializeAnd(obj);
+        }
+        if (obj instanceof Or) {
+            return this.serializeOr(obj);
+        }
+        if (obj instanceof Not) {
+            return this.serializeNot(obj);
         }
         if (obj instanceof Where) {
             return this.serializeWhere(obj);
@@ -40,11 +48,24 @@ class WhereSerializer {
         };
     }
 
-    serializeLogic(l) {
+    serializeAnd(l) {
         return {
-            "@type": "Logic",
-            "logicType": l.logicType(),
+            "@type": "And",
             "clauses": this.serializeAll(l.clauses()),
+        };
+    }
+
+    serializeOr(l) {
+        return {
+            "@type": "Or",
+            "clauses": this.serializeAll(l.clauses()),
+        };
+    }
+
+    serializeNot(l) {
+        return {
+            "@type": "Not",
+            "clauses": this.serialize(l.clause()),
         };
     }
 

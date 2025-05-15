@@ -6,7 +6,7 @@ let serializeQuery = QUERY_SERIALIZER.serializeQuery(q);
 
 console.log(serializeQuery);
 
-let d = desc("name").addWhere("age = 10");
+let d = desc("name").where("age = 10");
 
 let serializeQuery1 = QUERY_SERIALIZER.serializeQuery(d);
 

@@ -1,42 +1,32 @@
 /**
- * 为空
- */
-const IS_NULL = "IS_NULL";
-
-/**
- * 不为空
- */
-const IS_NOT_NULL = "IS_NOT_NULL";
-
-/**
  * 等于
  */
-const EQUAL = "EQUAL";
+const EQ = "EQ";
 
 /**
  * 不等于
  */
-const NOT_EQUAL = "NOT_EQUAL";
+const NE = "NE";
 
 /**
  * 小于
  */
-const LESS_THAN = "LESS_THAN";
+const LT = "LT";
 
 /**
  * 小于等于
  */
-const LESS_THAN_OR_EQUAL = "LESS_THAN";
+const LTE = "LTE";
 
 /**
  * 大于
  */
-const GREATER_THAN = "GREATER_THAN";
+const GT = "GT";
 
 /**
  * 大于等于
  */
-const GREATER_THAN_OR_EQUAL = "GREATER_THAN";
+const GTE = "GTE";
 
 /**
  * Like
@@ -88,14 +78,12 @@ const JSON_OVERLAPS = "JSON_OVERLAPS";
 
 
 export {
-    IS_NULL,
-    IS_NOT_NULL,
-    EQUAL,
-    NOT_EQUAL,
-    LESS_THAN,
-    LESS_THAN_OR_EQUAL,
-    GREATER_THAN,
-    GREATER_THAN_OR_EQUAL,
+    EQ,
+    NE,
+    LT,
+    LTE,
+    GT,
+    GTE,
     LIKE,
     NOT_LIKE,
     LIKE_REGEX,

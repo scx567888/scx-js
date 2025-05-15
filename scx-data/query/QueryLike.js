@@ -11,8 +11,8 @@ class QueryLike extends Query {
         return this.#query;
     }
 
-    where(...whereClauses) {
-        this.query().where(...whereClauses);
+    where(where) {
+        this.query().where(where);
         return this;
     }
 
@@ -81,11 +81,6 @@ class QueryLike extends Query {
         return this;
     }
 
-    addWhere(...whereClauses) {
-        this.query().addWhere(whereClauses);
-        return this;
-    }
-
     addGroupBy(...groupByClauses) {
         this.query().addGroupBy(groupByClauses);
         return this;
@@ -93,11 +88,6 @@ class QueryLike extends Query {
 
     addOrderBy(...orderByClauses) {
         this.query().addOrderBy(orderByClauses);
-        return this;
-    }
-
-    removeWhereIf(filter) {
-        this.query().removeWhereIf(filter);
         return this;
     }
 

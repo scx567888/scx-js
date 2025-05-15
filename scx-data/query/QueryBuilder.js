@@ -1,30 +1,29 @@
 import {WhereClause} from "./WhereClause.js";
 import {
     BETWEEN,
-    EQUAL,
-    GREATER_THAN,
-    GREATER_THAN_OR_EQUAL,
+    EQ,
+    GT,
+    GTE,
     IN,
-    IS_NOT_NULL,
-    IS_NULL,
     JSON_CONTAINS,
     JSON_OVERLAPS,
-    LESS_THAN,
-    LESS_THAN_OR_EQUAL,
     LIKE,
     LIKE_REGEX,
+    LT,
+    LTE,
+    NE,
     NOT_BETWEEN,
-    NOT_EQUAL,
     NOT_IN,
     NOT_LIKE,
     NOT_LIKE_REGEX,
 } from "./WhereType.js";
 import {Where} from "./Where.js";
 import {QueryImpl} from "./QueryImpl.js";
-import {AND, OR} from "./LogicType.js";
 import {OrderBy} from "./OrderBy.js";
 import {ASC, DESC} from "./OrderByType.js";
-import {Logic} from "./Logic.js";
+import {Not} from "./Not.js";
+import {And} from "./And.js";
+import {Or} from "./Or.js";
 
 function query(oldQuery) {
     return new QueryImpl(oldQuery);
@@ -51,11 +50,15 @@ function limit(numberOfRows) {
 }
 
 function and(...clauses) {
-    return new Logic(AND).add(...clauses);
+    return new And().add(...clauses);
 }
 
 function or(...clauses) {
-    return new Logic(OR).add(...clauses);
+    return new Or().add(...clauses);
+}
+
+function not(clause) {
+    return new Not(clause);
 }
 
 function asc(name, ...options) {
@@ -67,36 +70,27 @@ function desc(name, ...options) {
 }
 
 function eq(fieldName, value, ...options) {
-    return new Where(fieldName, EQUAL, value, null, ...options);
+    return new Where(fieldName, EQ, value, null, ...options);
 }
 
 function ne(fieldName, value, ...options) {
-    return new Where(fieldName, NOT_EQUAL, value, null, ...options);
+    return new Where(fieldName, NE, value, null, ...options);
 }
-
 
 function lt(fieldName, value, ...options) {
-    return new Where(fieldName, LESS_THAN, value, null, ...options);
+    return new Where(fieldName, LT, value, null, ...options);
 }
 
-function le(fieldName, value, ...options) {
-    return new Where(fieldName, LESS_THAN_OR_EQUAL, value, null, ...options);
+function lte(fieldName, value, ...options) {
+    return new Where(fieldName, LTE, value, null, ...options);
 }
 
 function gt(fieldName, value, ...options) {
-    return new Where(fieldName, GREATER_THAN, value, null, ...options);
+    return new Where(fieldName, GT, value, null, ...options);
 }
 
-function ge(fieldName, value, ...options) {
-    return new Where(fieldName, GREATER_THAN_OR_EQUAL, value, null, ...options);
-}
-
-function isNull(fieldName, ...options) {
-    return new Where(fieldName, IS_NULL, null, null, ...options);
-}
-
-function isNotNull(fieldName, ...options) {
-    return new Where(fieldName, IS_NOT_NULL, null, null, ...options);
+function gte(fieldName, value, ...options) {
+    return new Where(fieldName, GTE, value, null, ...options);
 }
 
 function like(fieldName, value, ...options) {
@@ -153,16 +147,15 @@ export {
     limit,
     and,
     or,
+    not,
     asc,
     desc,
     eq,
     ne,
     lt,
-    le,
+    lte,
     gt,
-    ge,
-    isNull,
-    isNotNull,
+    gte,
     like,
     notLike,
     likeRegex,
