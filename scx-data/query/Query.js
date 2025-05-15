@@ -1,6 +1,6 @@
 class Query {
 
-    where(...whereClauses) {
+    where(where) {
         return this;
     }
 
@@ -55,19 +55,11 @@ class Query {
         return this;
     }
 
-    addWhere(...whereClauses) {
-        return this;
-    }
-
     addGroupBy(...groupByClauses) {
         return this;
     }
 
     addOrderBy(...orderByClauses) {
-        return this;
-    }
-
-    removeWhereIf(filter) {
         return this;
     }
 

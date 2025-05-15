@@ -1,40 +1,33 @@
 import {QueryLike} from "./QueryLike.js";
 import {
     BETWEEN,
-    EQUAL,
-    GREATER_THAN,
-    GREATER_THAN_OR_EQUAL,
+    EQ,
+    GT,
+    GTE,
     IN,
-    IS_NOT_NULL,
-    IS_NULL,
     JSON_CONTAINS,
     JSON_OVERLAPS,
-    LESS_THAN,
-    LESS_THAN_OR_EQUAL,
     LIKE,
     LIKE_REGEX,
+    LT,
+    LTE,
+    NE,
     NOT_BETWEEN,
-    NOT_EQUAL,
     NOT_IN,
     NOT_LIKE,
     NOT_LIKE_REGEX,
 } from "./WhereType.js";
 import {Where} from "./Where.js";
 import {QueryImpl} from "./QueryImpl.js";
+import {Not} from "./Not.js";
 
-class Logic extends QueryLike {
+class Junction extends QueryLike {
 
-    #logicType;
     #clauses;
 
-    constructor(logicType) {
+    constructor() {
         super();
-        this.#logicType = logicType;
         this.#clauses = [];
-    }
-
-    logicType() {
-        return this.#logicType;
     }
 
     clauses() {
@@ -61,36 +54,27 @@ class Logic extends QueryLike {
     }
 
     eq(fieldName, value, ...options) {
-        return this.add(new Where(fieldName, EQUAL, value, null, ...options));
+        return this.add(new Where(fieldName, EQ, value, null, ...options));
     }
 
     ne(fieldName, value, ...options) {
-        return this.add(new Where(fieldName, NOT_EQUAL, value, null, ...options));
+        return this.add(new Where(fieldName, NE, value, null, ...options));
     }
 
     lt(fieldName, value, ...options) {
-        return this.add(new Where(fieldName, LESS_THAN, value, null, ...options));
+        return this.add(new Where(fieldName, LT, value, null, ...options));
     }
 
-    le(fieldName, value, ...options) {
-        return this.add(new Where(fieldName, LESS_THAN_OR_EQUAL, value, null, ...options));
+    lte(fieldName, value, ...options) {
+        return this.add(new Where(fieldName, LTE, value, null, ...options));
     }
 
     gt(fieldName, value, ...options) {
-        return this.add(new Where(fieldName, GREATER_THAN, value, null, ...options));
+        return this.add(new Where(fieldName, GT, value, null, ...options));
     }
 
-    ge(fieldName, value, ...options) {
-        return this.add(new Where(fieldName, GREATER_THAN_OR_EQUAL, value, null, ...options));
-    }
-
-
-    isNull(fieldName, ...options) {
-        return this.add(new Where(fieldName, IS_NULL, null, null, ...options));
-    }
-
-    isNotNull(fieldName, ...options) {
-        return this.add(new Where(fieldName, IS_NOT_NULL, null, null, ...options));
+    gte(fieldName, value, ...options) {
+        return this.add(new Where(fieldName, GTE, value, null, ...options));
     }
 
     like(fieldName, value, ...options) {
@@ -133,6 +117,18 @@ class Logic extends QueryLike {
         return this.add(new Where(fieldName, JSON_OVERLAPS, value, null, ...options));
     }
 
+    and(...clauses) {
+        // 因为 js 不允许 循环依赖 所以 这个方法迁移到子类实现
+    }
+
+    or(...clauses) {
+        // 因为 js 不允许 循环依赖 所以 这个方法迁移到子类实现
+    }
+
+    not(clause) {
+        return this.add(new Not(clause));
+    }
+
     toQuery() {
         return new QueryImpl().where(this);
     }
@@ -140,5 +136,5 @@ class Logic extends QueryLike {
 }
 
 export {
-    Logic,
+    Junction,
 };

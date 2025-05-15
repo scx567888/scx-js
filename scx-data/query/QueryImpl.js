@@ -15,16 +15,15 @@ class QueryImpl extends Query {
      */
     constructor(old) {
         super();
-        this.#where = [];
+        this.#where = null;
         this.#groupBy = [];
         this.#orderBy = [];
         this.#offset = null;
         this.#limit = null;
     }
 
-    where(...whereClauses) {
-        this.clearWhere();
-        this.addWhere(...whereClauses);
+    where(where) {
+        this.#where = where;
         return this;
     }
 
@@ -73,7 +72,7 @@ class QueryImpl extends Query {
     }
 
     clearWhere() {
-        this.#where = [];
+        this.#where = null;
         return this;
     }
 
@@ -94,20 +93,6 @@ class QueryImpl extends Query {
 
     clearLimit() {
         this.#limit = null;
-        return this;
-    }
-
-    addWhere(...whereClauses) {
-        for (let whereClause of whereClauses) {
-            if (whereClause == null) {
-                continue;
-            }
-            if (Array.isArray(whereClause)) {
-                this.addWhere(...whereClause);
-                continue;
-            }
-            this.#where.push(whereClause);
-        }
         return this;
     }
 
