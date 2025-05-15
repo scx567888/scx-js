@@ -29,8 +29,8 @@ function query(oldQuery) {
     return new QueryImpl(oldQuery);
 }
 
-function where(...whereClauses) {
-    return new QueryImpl().where(...whereClauses);
+function where(whereClauses) {
+    return new QueryImpl().where(whereClauses);
 }
 
 function groupBy(...groupByClauses) {
