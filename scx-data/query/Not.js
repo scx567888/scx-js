@@ -11,7 +11,7 @@ class Not extends QueryLike {
     }
 
     clause() {
-        return this.clause;
+        return this.#clause;
     }
 
     toQuery() {

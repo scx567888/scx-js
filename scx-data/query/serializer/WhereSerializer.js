@@ -65,7 +65,7 @@ class WhereSerializer {
     serializeNot(l) {
         return {
             "@type": "Not",
-            "clauses": this.serialize(l.clause()),
+            "clause": this.serialize(l.clause()),
         };
     }
 
