@@ -23,7 +23,7 @@ class QueryImpl extends Query {
     }
 
     where(where) {
-        this.#where=where;
+        this.#where = where;
         return this;
     }
 
