@@ -1,15 +1,15 @@
 import {isBlank} from "@scx-js/scx-common";
 import {QueryImpl} from "./QueryImpl.js";
-import {ofInfo} from "./QueryOption.js";
+import {ofInfo} from "./BuildControl.js";
 import {QueryLike} from "./QueryLike.js";
 
 class OrderBy extends QueryLike {
 
-    #name;
+    #selector;
     #orderByType;
-    #info;
+    #useExpression;
 
-    constructor(name, orderByType, ...options) {
+    constructor(name, orderByType, useExpression) {
         super();
         if (isBlank(name)) {
             throw new Error("OrderBy 参数错误 : 名称 不能为空 !!!");
@@ -17,22 +17,22 @@ class OrderBy extends QueryLike {
         if (orderByType == null) {
             throw new Error("OrderBy 参数错误 : orderByType 不能为空 !!!");
         }
-        this.#name = name;
+        this.#selector = name;
         this.#orderByType = orderByType;
-        this.#info = ofInfo(...options);
+        this.#useExpression = useExpression;
     }
 
 
-    name() {
-        return this.#name;
+    selector() {
+        return this.#selector;
     }
 
     orderByType() {
         return this.#orderByType;
     }
 
-    info() {
-        return this.#info;
+    useExpression() {
+        return this.#useExpression;
     }
 
     toQuery() {
