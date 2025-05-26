@@ -68,14 +68,6 @@ const BETWEEN = "BETWEEN";
  */
 const NOT_BETWEEN = "NOT_BETWEEN";
 
-/**
- * json 包含 一般用于 数组判断
- */
-const JSON_CONTAINS = "JSON_CONTAINS";
-
-
-const JSON_OVERLAPS = "JSON_OVERLAPS";
-
 
 export {
     EQ,
@@ -92,6 +84,4 @@ export {
     NOT_IN,
     BETWEEN,
     NOT_BETWEEN,
-    JSON_CONTAINS,
-    JSON_OVERLAPS,
 };
