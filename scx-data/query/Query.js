@@ -4,29 +4,22 @@ class Query {
         return this;
     }
 
-    groupBy(...groupByClauses) {
+    orderBys(...orderBys) {
         return this;
     }
 
-    orderBy(...orderByClauses) {
+    offset(offset) {
         return this;
     }
 
-    offset(limitOffset) {
-        return this;
-    }
-
-    limit(numberOfRows) {
+    limit(limit) {
         return this;
     }
 
     getWhere() {
     }
 
-    getGroupBy() {
-    }
-
-    getOrderBy() {
+    getOrderBys() {
     }
 
     getOffset() {
@@ -39,11 +32,7 @@ class Query {
         return this;
     }
 
-    clearGroupBy() {
-        return this;
-    }
-
-    clearOrderBy() {
+    clearOrderBys() {
         return this;
     }
 
@@ -55,19 +44,15 @@ class Query {
         return this;
     }
 
-    addGroupBy(...groupByClauses) {
+    orderBy(...orderBys) {
         return this;
     }
 
-    addOrderBy(...orderByClauses) {
+    asc(selector, ...controls) {
         return this;
     }
 
-    removeGroupByIf(filter) {
-        return this;
-    }
-
-    removeOrderByIf(filter) {
+    desc(selector, ...controls) {
         return this;
     }
 
