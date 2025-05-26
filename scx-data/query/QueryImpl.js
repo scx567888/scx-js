@@ -1,14 +1,14 @@
 import {Query} from "./Query.js";
-import {removeIf} from "@scx-js/scx-common";
+import {checkUseExpression} from "./BuildControl.js";
+import {OrderBy} from "./OrderBy.js";
+import {ASC, DESC} from "./OrderByType.js";
 
 class QueryImpl extends Query {
 
     #where;
-    #groupBy;
-    #orderBy;
+    #orderBys;
     #offset;
     #limit;
-
 
     /**
      * 创建 Query 对象
@@ -16,8 +16,7 @@ class QueryImpl extends Query {
     constructor(old) {
         super();
         this.#where = null;
-        this.#groupBy = [];
-        this.#orderBy = [];
+        this.#orderBys = [];
         this.#offset = null;
         this.#limit = null;
     }
@@ -27,27 +26,26 @@ class QueryImpl extends Query {
         return this;
     }
 
-    groupBy(...groupByClauses) {
-        this.clearGroupBy();
-        this.addGroupBy(...groupByClauses);
+
+    orderBys(...orderBys) {
+        this.#orderBys = orderBys;
         return this;
     }
 
 
-    orderBy(...orderByClauses) {
-        this.clearOrderBy();
-        this.addOrderBy(...orderByClauses);
+    offset(offset) {
+        if (offset < 0) {
+            throw new Error("Limit 参数错误 : offset (偏移量) 不能小于 0 !!!");
+        }
+        this.#offset = offset;
         return this;
     }
 
-
-    offset(limitOffset) {
-        this.#offset = limitOffset;
-        return this;
-    }
-
-    limit(numberOfRows) {
-        this.#limit = numberOfRows;
+    limit(limit) {
+        if (limit < 0) {
+            throw new Error("Limit 参数错误 : limit (行长度) 不能小于 0 !!!");
+        }
+        this.#limit = limit;
         return this;
     }
 
@@ -55,12 +53,8 @@ class QueryImpl extends Query {
         return this.#where;
     }
 
-    getGroupBy() {
-        return this.#groupBy;
-    }
-
-    getOrderBy() {
-        return this.#orderBy;
+    getOrderBys() {
+        return this.#orderBys;
     }
 
     getOffset() {
@@ -76,13 +70,8 @@ class QueryImpl extends Query {
         return this;
     }
 
-    clearGroupBy() {
-        this.#groupBy = [];
-        return this;
-    }
-
-    clearOrderBy() {
-        this.#orderBy = [];
+    clearOrderBys() {
+        this.#orderBys = [];
         return this;
     }
 
@@ -96,46 +85,24 @@ class QueryImpl extends Query {
         return this;
     }
 
-    addGroupBy(...groupByClauses) {
-        for (let groupByClause of groupByClauses) {
-            if (groupByClause == null) {
-                continue;
-            }
-            if (Array.isArray(groupByClause)) {
-                this.addGroupBy(...groupByClause);
-                continue;
-            }
-            this.#groupBy.push(groupByClause);
-        }
+    orderBy(...orderBys) {
+        this.#orderBys.push(orderBys);
         return this;
     }
 
-    addOrderBy(...orderByClauses) {
-        for (let orderByClause of orderByClauses) {
-            if (orderByClause == null) {
-                continue;
-            }
-            if (Array.isArray(orderByClause)) {
-                this.addOrderBy(...orderByClause);
-                continue;
-            }
-            this.#orderBy.push(orderByClause);
-        }
+
+    asc(selector, ...controls) {
+        let useExpression = checkUseExpression(controls);
+        let o= new OrderBy(selector, ASC, useExpression);
+        this.orderBy(o);
         return this;
     }
 
-    removeWhereIf(filter) {
-        removeIf(this.#where, filter);
-        return this;
-    }
 
-    removeGroupByIf(filter) {
-        removeIf(this.#groupBy, filter);
-        return this;
-    }
-
-    removeOrderByIf(filter) {
-        removeIf(this.#orderBy, filter);
+    desc(selector, ...controls) {
+        let useExpression = checkUseExpression(controls);
+        let o= new OrderBy(selector, DESC, useExpression);
+        this.orderBy(o);
         return this;
     }
 

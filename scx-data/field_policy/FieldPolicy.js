@@ -8,44 +8,66 @@ class FieldPolicy {
         return this;
     }
 
-    filterMode() {
+    getFilterMode() {
     }
 
-    fieldNames() {
+    getFieldNames() {
     }
 
     clearFieldNames() {
-    }
-
-    ignoreNull(ignoreNullValue) {
         return this;
     }
 
-    ignoreNull_() {
+    virtualFields(...virtualFields) {
+        return this;
     }
 
-    ignoreNull__(fieldName, ignoreNullValue) {
+    getVirtualFields() {
     }
 
-    removeIgnoreNull(fieldName) {
+    clearVirtualFields() {
+        return this;
     }
 
-    ignoreNulls() {
+    virtualField(virtualFieldName, expression) {
+        return this;
+    }
+
+    ignoreNull(ignoreNull) {
+        return this;
+    }
+
+    ignoreNull_(fieldName, ignoreNull) {
+        return this;
+    }
+
+    assignFields(...assignFields) {
+        return this;
+    }
+
+    getIgnoreNull() {
+    }
+
+    getIgnoreNulls() {
+    }
+
+    getAssignFields() {
     }
 
     clearIgnoreNulls() {
+        return this;
     }
 
-    expression(fieldName, expression) {
+    clearAssignFields() {
+        return this;
     }
 
-    expressions() {
+    removeIgnoreNull(fieldName) {
+        return this;
     }
 
-    removeExpression(fieldName) {
-    }
-
-    clearExpressions() {
+    assignField(fieldName, expression) {
+        return this;
     }
 
 }

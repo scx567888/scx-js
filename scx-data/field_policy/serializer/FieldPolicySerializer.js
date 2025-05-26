@@ -12,11 +12,36 @@ class FieldPolicySerializer {
     serializeFieldPolicy(fieldPolicy) {
         return {
             "@type": "FieldPolicy",
-            "filterMode": fieldPolicy.filterMode(),
-            "fieldNames": fieldPolicy.fieldNames(),
-            "ignoreNull": fieldPolicy.ignoreNull_(),
-            "ignoreNulls": fieldPolicy.ignoreNulls(),
-            "expressions": fieldPolicy.expressions(),
+            "filterMode": fieldPolicy.getFilterMode(),
+            "fieldNames": fieldPolicy.getFieldNames(),
+            "virtualFields": this.serializeVirtualFields(fieldPolicy.getVirtualFields()),
+            "ignoreNull": fieldPolicy.getIgnoreNull(),
+            "ignoreNulls": fieldPolicy.getIgnoreNulls(),
+            "assignFields": this.serializeAssignFields(fieldPolicy.getAssignFields()),
+        };
+    }
+
+    serializeVirtualFields(v) {
+        return v.map(s => this.serializeVirtualField(s));
+    }
+
+    serializeVirtualField(v) {
+        return {
+            "@type": "VirtualField",
+            "expression": v.expression(),
+            "virtualFieldName": v.virtualFieldName(),
+        };
+    }
+
+    serializeAssignFields(v) {
+        return v.map(s => this.serializeAssignField(s));
+    }
+
+    serializeAssignField(v) {
+        return {
+            "@type": "AssignField",
+            "fieldName": v.fieldName(),
+            "expression": v.expression(),
         };
     }
 

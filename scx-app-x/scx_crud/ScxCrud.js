@@ -1,4 +1,4 @@
-import {FIELD_POLICY_SERIALIZER, QUERY_SERIALIZER} from "@scx-js/scx-data";
+import {FIELD_POLICY_SERIALIZER, includeAll, query, QUERY_SERIALIZER} from "@scx-js/scx-data";
 
 
 class ScxCrud {
@@ -101,9 +101,13 @@ function serializeCRUDListParam(crudListParam) {
     const o = {};
     if (crudListParam.query) {
         o.query = QUERY_SERIALIZER.serializeQuery(crudListParam.query);
+    } else {
+        o.query = QUERY_SERIALIZER.serializeQuery(query());
     }
     if (crudListParam.fieldPolicy) {
         o.fieldPolicy = FIELD_POLICY_SERIALIZER.serializeFieldPolicy(crudListParam.fieldPolicy);
+    } else {
+        o.fieldPolicy = FIELD_POLICY_SERIALIZER.serializeFieldPolicy(includeAll());
     }
     o.extParams = crudListParam.extParams;
     return o;

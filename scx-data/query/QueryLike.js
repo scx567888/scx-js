@@ -16,12 +16,7 @@ class QueryLike extends Query {
         return this;
     }
 
-    groupBy(...groupByClauses) {
-        this.query().groupBy(...groupByClauses);
-        return this;
-    }
-
-    orderBy(...orderByClauses) {
+    orderBys(...orderByClauses) {
         this.query().orderBy(...orderByClauses);
         return this;
     }
@@ -81,23 +76,18 @@ class QueryLike extends Query {
         return this;
     }
 
-    addGroupBy(...groupByClauses) {
-        this.query().addGroupBy(groupByClauses);
+    orderBy(...orderByClauses) {
+        this.query().orderBy(orderByClauses);
         return this;
     }
 
-    addOrderBy(...orderByClauses) {
-        this.query().addOrderBy(orderByClauses);
+    asc(selector, ...controls) {
+        this.query().asc(selector,...controls);
         return this;
     }
 
-    removeGroupByIf(filter) {
-        this.query().removeGroupByIf(filter);
-        return this;
-    }
-
-    removeOrderByIf(filter) {
-        this.query().removeOrderByIf(filter);
+    desc(selector, ...controls) {
+        this.query().desc(selector,...controls);
         return this;
     }
 
