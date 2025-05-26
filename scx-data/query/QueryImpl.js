@@ -1,5 +1,7 @@
 import {Query} from "./Query.js";
-import {asc, desc} from "./QueryBuilder.js";
+import {checkUseExpression} from "./BuildControl.js";
+import {OrderBy} from "./OrderBy.js";
+import {ASC, DESC} from "./OrderByType.js";
 
 class QueryImpl extends Query {
 
@@ -90,13 +92,17 @@ class QueryImpl extends Query {
 
 
     asc(selector, ...controls) {
-        this.orderBy(asc(selector, ...controls));
+        let useExpression = checkUseExpression(controls);
+        let o= new OrderBy(selector, ASC, useExpression);
+        this.orderBy(o);
         return this;
     }
 
 
     desc(selector, ...controls) {
-        this.orderBy(desc(selector, ...controls));
+        let useExpression = checkUseExpression(controls);
+        let o= new OrderBy(selector, DESC, useExpression);
+        this.orderBy(o);
         return this;
     }
 

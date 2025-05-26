@@ -16,9 +16,9 @@ import {
     NOT_LIKE_REGEX,
 } from "./ConditionType.js";
 import {Condition} from "./Condition.js";
-import {QueryImpl} from "./QueryImpl.js";
-import {Not} from "./Not.js";
-import {WhereClause} from "./WhereClause.js";
+// import {QueryImpl} from "./QueryImpl.js";
+// import {Not} from "./Not.js";
+// import {WhereClause} from "./WhereClause.js";
 
 class Junction extends QueryLike {
 
