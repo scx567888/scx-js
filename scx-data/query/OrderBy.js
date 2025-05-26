@@ -1,6 +1,5 @@
 import {isBlank} from "@scx-js/scx-common";
 import {QueryImpl} from "./QueryImpl.js";
-import {ofInfo} from "./BuildControl.js";
 import {QueryLike} from "./QueryLike.js";
 
 class OrderBy extends QueryLike {

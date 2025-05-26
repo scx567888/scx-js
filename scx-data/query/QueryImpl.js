@@ -1,7 +1,6 @@
 import {Query} from "./Query.js";
 import {asc, desc} from "./QueryBuilder.js";
 
-
 class QueryImpl extends Query {
 
     #where;
