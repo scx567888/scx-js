@@ -3,31 +3,21 @@ import {QueryImpl} from "./QueryImpl.js";
 
 class WhereClause extends QueryLike {
 
-    #whereClause;
+    #expression;
     #params;
 
-    constructor(whereClause, params) {
+    constructor(expression, params) {
         super();
-        this.#whereClause = whereClause;
+        this.#expression = expression;
         this.#params = params;
     }
 
-    /**
-     * 拼接
-     *
-     * @param other a
-     * @return WhereClause
-     */
-    concat(other) {
-        return new WhereClause(this.#whereClause.concat(other.#whereClause), this.#params.concat(other.params));
-    }
-
     isEmpty() {
-        return (this.#whereClause == null || this.#whereClause.isEmpty()) && (this.#params == null || this.#params.length === 0);
+        return (this.#expression == null || this.#expression.isEmpty()) && (this.#params == null || this.#params.length === 0);
     }
 
-    whereClause() {
-        return this.#whereClause;
+    expression() {
+        return this.#expression;
     }
 
     params() {
