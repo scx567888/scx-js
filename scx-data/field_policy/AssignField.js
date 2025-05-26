@@ -20,11 +20,11 @@ class AssignField extends FieldPolicyLike {
     }
 
     fieldName() {
-        return this.fieldName;
+        return this.#fieldName;
     }
 
     expression() {
-        return this.expression;
+        return this.#expression;
     }
 
     toFieldPolicy() {

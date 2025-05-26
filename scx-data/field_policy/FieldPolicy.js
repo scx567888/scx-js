@@ -37,7 +37,7 @@ class FieldPolicy {
         return this;
     }
 
-    ignoreNullField(fieldName, ignoreNull) {
+    ignoreNull_(fieldName, ignoreNull) {
         return this;
     }
 

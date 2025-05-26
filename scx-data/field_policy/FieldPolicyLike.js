@@ -58,8 +58,8 @@ class FieldPolicyLike extends FieldPolicy {
         return this;
     }
 
-    ignoreNullField(fieldName, ignoreNull) {
-        this.fieldPolicy().ignoreNullField(fieldName, ignoreNull);
+    ignoreNull_(fieldName, ignoreNull) {
+        this.fieldPolicy().ignoreNull_(fieldName, ignoreNull);
         return this;
     }
 

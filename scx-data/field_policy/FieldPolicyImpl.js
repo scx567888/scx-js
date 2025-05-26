@@ -1,46 +1,48 @@
 import {EXCLUDED, INCLUDED} from "./FilterMode.js";
 import {FieldPolicy} from "./FieldPolicy.js";
+import {AssignField} from "./AssignField.js";
+import {VirtualField} from "./VirtualField.js";
 
-class FieldPolicyImpl extends FieldPolicy {
-
+class FieldPolicyImpl extends FieldPolicy{
+    
     #filterMode;
     #fieldNames;
-    #expressions;
     #ignoreNulls;
+    #virtualFields;
+    #assignFields;
     #ignoreNull;
 
     constructor(filterMode) {
         super();
         this.#filterMode = filterMode;
         this.#fieldNames = new Set();
-        this.#expressions = new Map();
+        this.#virtualFields = [];
+        this.#assignFields = [];
         this.#ignoreNulls = new Map();
         this.#ignoreNull = true;
     }
 
     include(...fieldNames) {
         if (this.#filterMode === INCLUDED) {
-            this.addFieldNames(...fieldNames);
+            return this.addFieldNames(...fieldNames);
         } else if (this.#filterMode === EXCLUDED) {
-            this.removeFieldNames(...fieldNames);
+            return this.removeFieldNames(...fieldNames);
         }
-        return this;
     }
 
     exclude(...fieldNames) {
-        if (this.#filterMode === EXCLUDED) {
-            this.addFieldNames(...fieldNames);
-        } else if (this.#filterMode === INCLUDED) {
-            this.removeFieldNames(...fieldNames);
+        if (this.#filterMode === INCLUDED) {
+            return this.removeFieldNames(...fieldNames);
+        } else if (this.#filterMode === EXCLUDED) {
+            return this.addFieldNames(...fieldNames);
         }
-        return this;
     }
 
-    filterMode() {
+    getFilterMode() {
         return this.#filterMode;
     }
 
-    fieldNames() {
+    getFieldNames() {
         return Array.from(this.#fieldNames);
     }
 
@@ -49,17 +51,73 @@ class FieldPolicyImpl extends FieldPolicy {
         return this;
     }
 
-    ignoreNull(ignoreNullValue) {
-        this.#ignoreNull = ignoreNullValue;
+    addFieldNames(...fieldNames) {
+        for (const name of fieldNames) {
+            this.#fieldNames.add(name);
+        }
         return this;
     }
 
-    ignoreNull_() {
+    removeFieldNames(...fieldNames) {
+        for (const name of fieldNames) {
+            this.#fieldNames.delete(name);
+        }
+        return this;
+    }
+
+    virtualFields(...virtualFields) {
+        this.#virtualFields = [...virtualFields];
+        return this;
+    }
+
+    getVirtualFields() {
+        return this.#virtualFields;
+    }
+
+    clearVirtualFields() {
+        this.#virtualFields = [];
+        return this;
+    }
+
+    virtualField(name, expression) {
+        this.#virtualFields.push(new VirtualField(name, expression));
+        return this;
+    }
+
+    ignoreNull(ignoreNull) {
+        this.#ignoreNull = ignoreNull;
+        return this;
+    }
+
+    ignoreNull_(fieldName, ignoreNull) {
+        this.#ignoreNulls.set(fieldName, ignoreNull);
+        return this;
+    }
+
+    assignFields(...assignFields) {
+        this.#assignFields = [...assignFields];
+        return this;
+    }
+
+    getIgnoreNull() {
         return this.#ignoreNull;
     }
 
-    ignoreNull__(fieldName, ignoreNull) {
-        this.#ignoreNulls.set(fieldName, ignoreNull);
+    getIgnoreNulls() {
+        return Object.fromEntries(this.#ignoreNulls);
+    }
+
+    getAssignFields() {
+        return this.#assignFields;
+    }
+
+    clearIgnoreNulls() {
+        this.#ignoreNulls.clear();
+        return this;
+    }
+
+    clearAssignFields() {
+        this.#assignFields = [];
         return this;
     }
 
@@ -68,45 +126,8 @@ class FieldPolicyImpl extends FieldPolicy {
         return this;
     }
 
-    ignoreNulls() {
-        return this.#ignoreNulls;
-    }
-
-    clearIgnoreNulls() {
-        this.#ignoreNulls.clear();
-        return this;
-    }
-
-    expression(fieldName, expression) {
-        this.#expressions.set(fieldName, expression);
-        return this;
-    }
-
-    expressions() {
-        return this.#expressions;
-    }
-
-    removeExpression(fieldName) {
-        this.#expressions.delete(fieldName);
-        return this;
-    }
-
-    clearExpressions() {
-        this.#expressions.clear();
-        return this;
-    }
-
-    addFieldNames(...fieldNames) {
-        for (let fieldName of fieldNames) {
-            this.#fieldNames.add(fieldName);
-        }
-        return this;
-    }
-
-    removeFieldNames(...fieldNames) {
-        for (let fieldName of fieldNames) {
-            this.#fieldNames.delete(fieldName);
-        }
+    assignField(fieldName, expression) {
+        this.#assignFields.push(new AssignField(fieldName, expression));
         return this;
     }
 
