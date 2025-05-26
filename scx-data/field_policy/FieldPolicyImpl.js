@@ -3,8 +3,8 @@ import {FieldPolicy} from "./FieldPolicy.js";
 import {AssignField} from "./AssignField.js";
 import {VirtualField} from "./VirtualField.js";
 
-class FieldPolicyImpl extends FieldPolicy{
-    
+class FieldPolicyImpl extends FieldPolicy {
+
     #filterMode;
     #fieldNames;
     #ignoreNulls;

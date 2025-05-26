@@ -73,5 +73,5 @@ class FieldPolicy {
 }
 
 export {
-    FieldPolicy
-}
+    FieldPolicy,
+};

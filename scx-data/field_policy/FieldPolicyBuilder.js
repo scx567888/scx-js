@@ -7,15 +7,15 @@ function includeAll() {
     return new FieldPolicyImpl(EXCLUDED);
 }
 
-function  excludeAll() {
+function excludeAll() {
     return new FieldPolicyImpl(INCLUDED);
 }
 
-function  include(... fieldNames) {
+function include(...fieldNames) {
     return excludeAll().include(...fieldNames);
 }
 
-function  exclude(... fieldNames) {
+function exclude(...fieldNames) {
     return includeAll().exclude(...fieldNames);
 }
 
@@ -25,16 +25,16 @@ function ignoreNull(ignoreNull) {
 }
 
 /// 默认包含所有
-function ignoreNull_(fieldName,ignoreNull) {
+function ignoreNull_(fieldName, ignoreNull) {
     return includeAll().ignoreNull_(fieldName, ignoreNull);
 }
 
 /// 默认包含所有
-function assignField( fieldName,  expression) {
+function assignField(fieldName, expression) {
     return new AssignField(fieldName, expression);
 }
 
-function virtualField( virtualFieldName,  expression) {
+function virtualField(virtualFieldName, expression) {
     return new VirtualField(virtualFieldName, expression);
 }
 
@@ -46,5 +46,5 @@ export {
     ignoreNull,
     ignoreNull_,
     assignField,
-    virtualField
+    virtualField,
 };
