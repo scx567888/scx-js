@@ -46,51 +46,51 @@ class Junction extends QueryLike {
     }
 
     eq(fieldName, value, ...options) {
-        return this.add(condition(fieldName, EQ, value,  ...options));
+        return this.add(condition(fieldName, EQ, value, ...options));
     }
 
     ne(fieldName, value, ...options) {
-        return this.add(condition(fieldName, NE, value,  ...options));
+        return this.add(condition(fieldName, NE, value, ...options));
     }
 
     lt(fieldName, value, ...options) {
-        return this.add(condition(fieldName, LT, value,  ...options));
+        return this.add(condition(fieldName, LT, value, ...options));
     }
 
     lte(fieldName, value, ...options) {
-        return this.add(condition(fieldName, LTE, value,  ...options));
+        return this.add(condition(fieldName, LTE, value, ...options));
     }
 
     gt(fieldName, value, ...options) {
-        return this.add(condition(fieldName, GT, value,  ...options));
+        return this.add(condition(fieldName, GT, value, ...options));
     }
 
     gte(fieldName, value, ...options) {
-        return this.add(condition(fieldName, GTE, value,  ...options));
+        return this.add(condition(fieldName, GTE, value, ...options));
     }
 
     like(fieldName, value, ...options) {
-        return this.add(condition(fieldName, LIKE, value,  ...options));
+        return this.add(condition(fieldName, LIKE, value, ...options));
     }
 
     notLike(fieldName, value, ...options) {
-        return this.add(condition(fieldName, NOT_LIKE, value,  ...options));
+        return this.add(condition(fieldName, NOT_LIKE, value, ...options));
     }
 
     likeRegex(fieldName, value, ...options) {
-        return this.add(condition(fieldName, LIKE_REGEX, value,  ...options));
+        return this.add(condition(fieldName, LIKE_REGEX, value, ...options));
     }
 
     notLikeRegex(fieldName, value, ...options) {
-        return this.add(condition(fieldName, NOT_LIKE_REGEX, value,  ...options));
+        return this.add(condition(fieldName, NOT_LIKE_REGEX, value, ...options));
     }
 
     in(fieldName, value, ...options) {
-        return this.add(condition(fieldName, IN, value,  ...options));
+        return this.add(condition(fieldName, IN, value, ...options));
     }
 
     notIn(fieldName, value, ...options) {
-        return this.add(condition(fieldName, NOT_IN, value,  ...options));
+        return this.add(condition(fieldName, NOT_IN, value, ...options));
     }
 
     between(fieldName, value1, value2, ...options) {
