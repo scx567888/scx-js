@@ -28,7 +28,7 @@ class QueryImpl extends Query {
 
 
     orderBys(...orderBys) {
-        this.#orderBys = orderBys;
+        this.#orderBys = [...orderBys];
         return this;
     }
 
@@ -86,14 +86,14 @@ class QueryImpl extends Query {
     }
 
     orderBy(...orderBys) {
-        this.#orderBys.push(orderBys);
+        this.#orderBys.push(...orderBys);
         return this;
     }
 
 
     asc(selector, ...controls) {
         let useExpression = checkUseExpression(controls);
-        let o= new OrderBy(selector, ASC, useExpression);
+        let o = new OrderBy(selector, ASC, useExpression);
         this.orderBy(o);
         return this;
     }
@@ -101,7 +101,7 @@ class QueryImpl extends Query {
 
     desc(selector, ...controls) {
         let useExpression = checkUseExpression(controls);
-        let o= new OrderBy(selector, DESC, useExpression);
+        let o = new OrderBy(selector, DESC, useExpression);
         this.orderBy(o);
         return this;
     }
