@@ -72,12 +72,12 @@ function condition2(fieldName, conditionType, value1, value2, ...controls) {
 }
 
 function orderBy(selector, orderByType, ...controls) {
-    let useExpression = checkUseExpression(controls);
+    let useExpression = checkUseExpression(...controls);
     return new OrderBy(selector, orderByType, useExpression);
 }
 
 function whereClause(expression, ...params) {
-    return new WhereClause(expression, params);
+    return new WhereClause(expression, ...params);
 }
 
 function asc(name, ...options) {

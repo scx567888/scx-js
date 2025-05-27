@@ -40,6 +40,8 @@ export {
     SKIP_IF_EMPTY_LIST,
     SKIP_IF_BLANK_STRING,
     SKIP_IF_EMPTY_STRING,
+    USE_EXPRESSION,
+    USE_EXPRESSION_VALUE,
     checkUseExpression,
     checkUseExpressionValue,
 };
