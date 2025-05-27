@@ -28,7 +28,7 @@ class QueryImpl extends Query {
 
 
     orderBys(...orderBys) {
-        this.#orderBys = orderBys;
+        this.#orderBys = [...orderBys];
         return this;
     }
 
@@ -86,7 +86,7 @@ class QueryImpl extends Query {
     }
 
     orderBy(...orderBys) {
-        this.#orderBys.push(orderBys);
+        this.#orderBys.push(...orderBys);
         return this;
     }
 

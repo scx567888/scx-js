@@ -16,8 +16,8 @@ class QueryLike extends Query {
         return this;
     }
 
-    orderBys(...orderByClauses) {
-        this.query().orderBy(...orderByClauses);
+    orderBys(...orderBys) {
+        this.query().orderBy(...orderBys);
         return this;
     }
 
@@ -35,12 +35,8 @@ class QueryLike extends Query {
         return this.query().getWhere();
     }
 
-    getGroupBy() {
-        return this.query().getGroupBy();
-    }
-
-    getOrderBy() {
-        return this.query().getOrderBy();
+    getOrderBys() {
+        return this.query().getOrderBys();
     }
 
     getOffset() {
@@ -56,16 +52,6 @@ class QueryLike extends Query {
         return this;
     }
 
-    clearGroupBy() {
-        this.query().clearGroupBy();
-        return this;
-    }
-
-    clearOrderBy() {
-        this.query().clearOrderBy();
-        return this;
-    }
-
     clearOffset() {
         this.query().clearOffset();
         return this;
@@ -77,7 +63,7 @@ class QueryLike extends Query {
     }
 
     orderBy(...orderByClauses) {
-        this.query().orderBy(orderByClauses);
+        this.query().orderBy(...orderByClauses);
         return this;
     }
 
