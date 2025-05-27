@@ -116,5 +116,5 @@ function serializeSkipIfInfo(info) {
 
 export {
     serializeQueryToJson,
-    serializeQuery
+    serializeQuery,
 };

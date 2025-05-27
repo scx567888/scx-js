@@ -60,7 +60,7 @@ class Condition extends QueryLike {
     }
 
     isEmpty() {
-    
+
     }
 
     toQuery() {

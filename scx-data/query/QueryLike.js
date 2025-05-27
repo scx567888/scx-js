@@ -68,12 +68,12 @@ class QueryLike extends Query {
     }
 
     asc(selector, ...controls) {
-        this.query().asc(selector,...controls);
+        this.query().asc(selector, ...controls);
         return this;
     }
 
     desc(selector, ...controls) {
-        this.query().desc(selector,...controls);
+        this.query().desc(selector, ...controls);
         return this;
     }
 

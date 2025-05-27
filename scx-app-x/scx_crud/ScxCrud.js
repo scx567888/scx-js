@@ -1,4 +1,4 @@
-import {includeAll, query, serializeFieldPolicy, serializeQuery} from "@scx-js/scx-data";
+import {serializeFieldPolicy, serializeQuery} from "@scx-js/scx-data";
 
 
 class ScxCrud {
