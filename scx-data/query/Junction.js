@@ -16,9 +16,11 @@ import {
     NOT_LIKE_REGEX,
 } from "./ConditionType.js";
 import {Condition} from "./Condition.js";
-// import {QueryImpl} from "./QueryImpl.js";
-// import {Not} from "./Not.js";
-// import {WhereClause} from "./WhereClause.js";
+import {QueryImpl} from "./QueryImpl.js";
+import {Not} from "./Not.js";
+import {WhereClause} from "./WhereClause.js";
+import {checkUseExpression, checkUseExpressionValue} from "./BuildControl.js";
+import {ofSkipIfInfo} from "./SkipIfInfo.js";
 
 class Junction extends QueryLike {
 
@@ -34,16 +36,7 @@ class Junction extends QueryLike {
     }
 
     add(...logicCauses) {
-        for (let logicCause of logicCauses) {
-            if (logicCause == null) {
-                continue;
-            }
-            if (Array.isArray(logicCause)) {
-                this.add(...logicCause);
-                continue;
-            }
-            this.#clauses.push(logicCause);
-        }
+        this.#clauses.push(...logicCauses);
         return this;
     }
 
@@ -53,67 +46,59 @@ class Junction extends QueryLike {
     }
 
     eq(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, EQ, value, null, ...options));
+        return this.add(condition(fieldName, EQ, value,  ...options));
     }
 
     ne(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, NE, value, null, ...options));
+        return this.add(condition(fieldName, NE, value,  ...options));
     }
 
     lt(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, LT, value, null, ...options));
+        return this.add(condition(fieldName, LT, value,  ...options));
     }
 
     lte(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, LTE, value, null, ...options));
+        return this.add(condition(fieldName, LTE, value,  ...options));
     }
 
     gt(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, GT, value, null, ...options));
+        return this.add(condition(fieldName, GT, value,  ...options));
     }
 
     gte(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, GTE, value, null, ...options));
+        return this.add(condition(fieldName, GTE, value,  ...options));
     }
 
     like(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, LIKE, value, null, ...options));
+        return this.add(condition(fieldName, LIKE, value,  ...options));
     }
 
     notLike(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, NOT_LIKE, value, null, ...options));
+        return this.add(condition(fieldName, NOT_LIKE, value,  ...options));
     }
 
     likeRegex(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, LIKE_REGEX, value, null, ...options));
+        return this.add(condition(fieldName, LIKE_REGEX, value,  ...options));
     }
 
     notLikeRegex(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, NOT_LIKE_REGEX, value, null, ...options));
+        return this.add(condition(fieldName, NOT_LIKE_REGEX, value,  ...options));
     }
 
     in(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, IN, value, null, ...options));
+        return this.add(condition(fieldName, IN, value,  ...options));
     }
 
     notIn(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, NOT_IN, value, null, ...options));
+        return this.add(condition(fieldName, NOT_IN, value,  ...options));
     }
 
     between(fieldName, value1, value2, ...options) {
-        return this.add(new Condition(fieldName, BETWEEN, value1, value2, ...options));
+        return this.add(condition2(fieldName, BETWEEN, value1, value2, ...options));
     }
 
     notBetween(fieldName, value1, value2, ...options) {
-        return this.add(new Condition(fieldName, NOT_BETWEEN, value1, value2, ...options));
-    }
-
-    jsonContains(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, JSON_CONTAINS, value, null, ...options));
-    }
-
-    jsonOverlaps(fieldName, value, ...options) {
-        return this.add(new Condition(fieldName, JSON_OVERLAPS, value, null, ...options));
+        return this.add(condition2(fieldName, NOT_BETWEEN, value1, value2, ...options));
     }
 
     and(...clauses) {
@@ -136,6 +121,21 @@ class Junction extends QueryLike {
         return new QueryImpl().where(this);
     }
 
+}
+
+
+function condition(fieldName, conditionType, value, ...controls) {
+    let useExpression = checkUseExpression(...controls);
+    let useExpressionValue = checkUseExpressionValue(...controls);
+    let skipIfInfo = ofSkipIfInfo(...controls);
+    return new Condition(fieldName, conditionType, value, null, useExpression, useExpressionValue, skipIfInfo);
+}
+
+function condition2(fieldName, conditionType, value1, value2, ...controls) {
+    let useExpression = checkUseExpression(...controls);
+    let useExpressionValue = checkUseExpressionValue(...controls);
+    let skipIfInfo = ofSkipIfInfo(...controls);
+    return new Condition(fieldName, conditionType, value1, value2, useExpression, useExpressionValue, skipIfInfo);
 }
 
 export {
