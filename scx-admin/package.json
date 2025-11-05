@@ -21,7 +21,7 @@
     "@scx-js/scx-common": "0.2.4",
     "@scx-js/scx-dom": "0.2.4",
     "@scx-js/scx-http": "0.2.4",
-    "ckeditor5": "^45.0.0",
+    "ckeditor5": "^47.2.0",
     "element-plus": "^2.9.7",
     "lodash-es": "^4.17.21",
     "monaco-editor": "^0.52.2",
