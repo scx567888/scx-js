@@ -28,7 +28,7 @@ jobs:
         working-directory: scx-ui
 
       - name: 上传 构建和测试 生成的文件
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: scx-ui-artifact
           path: "./scx-ui/_test/dist/"
